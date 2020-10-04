@@ -14,7 +14,7 @@ layout: post
 
 <!--more-->
 
-## 1 WebSocket 是什么
+### 1 WebSocket 是什么
 
 WebSocket 是 HTML5 新增的在单个 TCP 连接上进行**全双工通讯**（不受限的双向通信）的协议，能更好的节省服务器资源和带宽，并且能够更实时地进行通讯。
 
@@ -39,15 +39,15 @@ WebSocket 的长连接是真正的全双工，TCP 链路建立后，双方可以
 另外 chrome 允许一个域名有 6 个 TCP 连接并发，意味着同时发出的请求超过这个数字，只能排队了
 ```
 
-## 2 为什么要用 WebSocket
+### 2 为什么要用 WebSocket
 
-### 2.1 需求描述、应用场景
+#### 2.1 需求描述、应用场景
 
 - 需求：服务端数据更新，需要通知到客户端。
 
 - 应用场景：聊天软件、订阅、游戏、协同工作（比如文本编辑）、直播、股票基金、基于位置的应用等。
 
-### 2.2 常用解决方案对比
+#### 2.2 常用解决方案对比
 
 WebSocket 能解决上述需求，除此之外，常用的解决方案还有：轮询、长轮询。另外 html5 还提供了 Server-Sent Event。
 
@@ -72,11 +72,11 @@ SSE suffers from a limitation to the maximum number of open connections, which c
 
 > 另外 HTTP/2 提供了服务器推送(Server Push)的功能，千万别和上面几个东西搞混了，完全不是一回事。服务器指的是 web 服务器，推送的对象是浏览器要加载的资源，是用于提升首屏加载速度的技术，需要在 web 服务器（比如 nginx）中开启相关配置。可以参考这篇：[https://www.cnblogs.com/wetest/p/8040202.html](https://www.cnblogs.com/wetest/p/8040202.html)
 
-## 3 WebSocket 连接建立过程
+### 3 WebSocket 连接建立过程
 
 `WebSocket并不是全新的协议，而是利用了HTTP协议来建立连接。我们来看看WebSocket连接是如何创建的。`
 
-### 3.1 浏览器发起一个 http 请求建立连接
+#### 3.1 浏览器发起一个 http 请求建立连接
 
 请求地址以`ws://`开头，请求头`Upgrade: websocket`和`Connection: Upgrade`表示这个连接将要被转换为 WebSocket 连接。
 
@@ -84,7 +84,7 @@ SSE suffers from a limitation to the maximum number of open connections, which c
 
 - 1.2 浏览器发送 HTTP 请求，并携带协议升级的头信息，进行协议升级前的握手
 
-### 3.2 服务器响应请求
+#### 3.2 服务器响应请求
 
 响应头`HTTP/1.1 101 Switching Protocols`和`Upgrade: websocket`表示本次连接的 HTTP 协议即将被更改（代码 101），改为指定的 WebSocket 协议。
 
@@ -92,9 +92,9 @@ SSE suffers from a limitation to the maximum number of open connections, which c
 
 - 2.2 双方可以通过这个连接自由的传信息，连接会持续存在，server 和 client 都可单方面断开连接
 
-## 4 使用需知 & 实用指南
+### 4 使用需知 & 实用指南
 
-### 4.1 正确使用 ws 和 wss
+#### 4.1 正确使用 ws 和 wss
 
 - WebSocket 的协议标识符是`ws`，如果在 TLS 协议上，标识符是`wss`，类似于 https
 
@@ -102,7 +102,7 @@ SSE suffers from a limitation to the maximum number of open connections, which c
 
 > TLS 之上的 Websocket：首先，浏览器用 wss://xxx 创建 WebSocket 连接时，会先通过 HTTPS 创建安全的连接，然后，该 HTTPS 连接升级为 WebSocket 连接，底层通信走的仍然是安全的 SSL/TLS 协议。
 
-### 4.2 使用 Nginx 代理 WebSocket 请求
+#### 4.2 使用 Nginx 代理 WebSocket 请求
 
 - Nginx 从 1.3 开始就支持 WebSocket 了，并且可以为 WebSocket 应用程序做反向代理和负载均衡。官方文档：[http://nginx.org/en/docs/http/websocket.html](http://nginx.org/en/docs/http/websocket.html)
 
@@ -143,9 +143,9 @@ server {
 }
 ```
 
-### 4.3 如何解决 nginx 掐断 WebSocket 连接的问题
+#### 4.3 如何解决 nginx 掐断 WebSocket 连接的问题
 
-#### 4.3.1 问题简述
+##### 4.3.1 问题简述
 
 有时候会发现 WebSocket 连接莫名其妙断了，后端日志发现有如下报错：
 
@@ -169,11 +169,11 @@ java.io.EOFException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 ```
 
-#### 4.3.2 原因
+##### 4.3.2 原因
 
 - nginx 配置项 proxy_read_timeout 的默认值为 60s，表示等待服务器响应的时间。也就是说，当 WebSocket 使用 nginx 转发时，如 60s 内没有通讯，nginx 便会掐断连接。
 
-#### 4.3.3 解决方案
+##### 4.3.3 解决方案
 
 - nginx proxy_read_timeout 设置为不超时
 - 前端发起心跳检测
