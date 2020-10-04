@@ -10,14 +10,14 @@ safe: true
 
 title: Victor Blog
 # 显示在浏览器上搜索的时候显示的标题
-SEOTitle: 维克多博客 | Victor Blo
+SEOTitle: 维克多博客 | Victor Blog
 # 显示在首页的背景图片g
 # header-img: img/post-bg-rwd.jpg
 feed: /atom.xml
 comments: disqus
 email: 1401644339@qq.com
 # 网站介绍
-description: Victor Blog
+description: Talk is cheap. Show me the code
 
 author:
   name: Victor
