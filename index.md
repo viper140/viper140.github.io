@@ -18,8 +18,6 @@
             <br>
             <a href="{{ post.url }}">[继续阅读]</a>
         </p>
-     </div>
 </article>
-<br>
 
 {% endfor %}
