@@ -1,5 +1,4 @@
 ---
-layout: post
 title: ubuntu配置静态ip和dns
 tags: [ubuntu,dns,ip]
 ---
