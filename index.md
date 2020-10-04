@@ -2,11 +2,8 @@
 
 <article>
     <div>
-        <!-- day -->
         <span>{{ post.date | date:"%d" }}</span>
-        <!-- month -->
         <span>{{ post.date | date:"%b" }}</span>
-        <!-- year -->
         <span>{{ post.date | date:"%Y" }}</span>
     </div>
      <header>
@@ -20,5 +17,6 @@
         </p>
      </div>
 </article>
+<br>
 
 {% endfor %}
