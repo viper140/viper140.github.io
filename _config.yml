@@ -1,23 +1,21 @@
 theme: jekyll-theme-cayman
 
-markdown: kramdown
-permalink: /:title.html
-url: https://viper140.github.io/
-baseurl: ""
-lsi: true
-rouge: true
-safe: true
-
 title: Victor Blog
+description: Talk is cheap. Show me the code
+url: https://viper140.github.io/
+email: 1401644339@qq.com
+
 # 显示在浏览器上搜索的时候显示的标题
 SEOTitle: 维克多博客 | Victor Blog
-# 显示在首页的背景图片g
-# header-img: img/post-bg-rwd.jpg
-feed: /atom.xml
-comments: disqus
-email: 1401644339@qq.com
-# 网站介绍
-description: Talk is cheap. Show me the code
+
+# markdown: kramdown
+# header-img: img/post-bg-rwd.jpg # 首页背景图片
+# permalink: /:title.html
+# feed: /atom.xml
+# baseurl: ""
+# lsi: true
+# rouge: true
+# safe: true
 
 author:
   name: Victor
