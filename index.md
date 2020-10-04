@@ -1,7 +1,3 @@
-# viper140.github.io
-
-## 标题 1
-
 {% for post in site.posts limit:32 %}
 
 <article class="post">
