@@ -16,6 +16,7 @@
      <div class="con">
         <p>
             {{ post.content  | | split:'<!--more-->' | first | strip_html }}
+            <br>
             <a class="more" href="{{ post.url }}">[继续阅读]</a>
         </p>
      </div>
@@ -37,8 +38,11 @@
      </header>
      <div>
         <p>
+            <br>
             {{ post.content  | | split:'<!--more-->' | first | strip_html }}
-            <a href="{{ post.url }}">[继续阅读]</a>
+            <a href="">{{ post.url }}</a>
+            <a href="">{{ post.date }}</a>
+            <a href="">{{ post }}</a>
         </p>
      </div>
 </article>
