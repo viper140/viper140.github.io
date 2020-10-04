@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 设计模式 - 单例模式
 tags: [singleton,pattern]
 ---
