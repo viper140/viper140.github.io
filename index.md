@@ -10,14 +10,18 @@
         <span>{{ post.date | date:"%Y" }}</span>
     </div>
      <header>
-        <h2><a href="{{post.url}}" title="{{ post.title }}">{{ post.title }}</a></h2>
+        <h2>
+          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </h2>
      </header>
      <div>
         <p>
             {{ post.content  | | split:'<!--more-->' | first | strip_html }}
+            <br>
             <a href="{{ post.url }}">[继续阅读]</a>
         </p>
      </div>
 </article>
+<br>
 
 {% endfor %}
