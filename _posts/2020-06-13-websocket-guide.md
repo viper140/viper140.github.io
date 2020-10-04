@@ -1,14 +1,18 @@
 ---
-title: 'WebSocket 入坑必看'
-date: 2020-06-14T12:00:00+08:00
-lastmod: 2020-06-14T12:00:00+08:00
-tags: ['Java', 'WebSocket', 'Http']
-categories: ['开发']
-author: '王峰'
-layout: post
+title: WebSocket
+tags: [ubuntu,dns,ip]
+# title: 'WebSocket 入坑必看'
+# date: 2020-06-14T12:00:00+08:00
+# lastmod: 2020-06-14T12:00:00+08:00
+# tags: ['Java', 'WebSocket', 'Http']
+# categories: ['开发']
+# author: '王峰'
+# layout: post
 ---
 
-前段时间同事离职，他的机子配置比较好，我和老大申请，无耻的换用他的主机，收编了他的显示器。这下内存和硬盘都上去了，总得折腾点事情做啊，安装虚拟机，折腾个 ubuntu 用用，刚好同事的 ip 我也霸占了(我们局域网的 ip 是静态绑定的)。我想把原来在 windows 下搭建的 php 环境放在 linux 上，这样的话就需要配置个 ip ， vmware 的网络设置需要是 bridge 模式，不能是原来的 nat 模式。 debian 下配置静态 ip 和 dns 挺简单的， ubuntu 下有点不同，在此记录下。
+- 介绍 WebSocket 的原理，了解原理后，用起来更放心大胆
+- 类似技术对比，搞清楚自己的业务场景是不是需要使用 WebSocket
+- 使用过程中的经验分享，让你少走一些弯路
 
 <!--more-->
 
