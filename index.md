@@ -38,11 +38,9 @@
      </header>
      <div>
         <p>
-            <br>
             {{ post.content  | | split:'<!--more-->' | first | strip_html }}
-            <a href="">{{ post.url }}</a>
-            <a href="">{{ post.date }}</a>
-            <a href="">{{ post }}</a>
+            <br>
+            <a class="more" href="/singleton-pattern.md">[继续阅读]</a>
         </p>
      </div>
 </article>
