@@ -1,5 +1,5 @@
 ---
-title: ubuntu配置静态ip和dns
+title: test1
 tags: [ubuntu,dns,ip]
 ---
 
