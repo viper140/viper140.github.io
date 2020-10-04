@@ -1,7 +1,6 @@
 ---
 title: "WebSocket 入坑必看"
 date: 2020-06-14T12:00:00+08:00
-lastmod: 2020-06-14T12:00:00+08:00
 tags: ["Java", "WebSocket", "Http"]
 categories: ["开发"]
 author: "王峰"
