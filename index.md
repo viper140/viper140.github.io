@@ -15,9 +15,9 @@
      <div>
         <p>
             {{ post.content  | | split:'<!--more-->' | first | strip_html }}
-            <br>
             <a href="{{ post.url }}">[继续阅读]</a>
         </p>
+     </div>
 </article>
 
 {% endfor %}
