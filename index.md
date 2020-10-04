@@ -20,6 +20,5 @@
         </p>
      </div>
 </article>
-<br>
 
 {% endfor %}
