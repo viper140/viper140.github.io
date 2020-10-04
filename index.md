@@ -1,10 +1,13 @@
 {% for post in site.posts limit:32 %}
 
-<article class="post">
-    <div class="date">
-        <span class="day">{{ post.date | date:"%d" }}</span>
-        <span class="month">{{ post.date | date:"%b" }}</span>
-        <span class="year">{{ post.date | date:"%Y" }}</span>
+<article>
+    <div>
+        <!-- day -->
+        <span>{{ post.date | date:"%d" }}</span>
+        <!-- month -->
+        <span>{{ post.date | date:"%b" }}</span>
+        <!-- year -->
+        <span>{{ post.date | date:"%Y" }}</span>
     </div>
      <header>
         <h2><a href="{{post.url}}" title="{{ post.title }}">{{ post.title }}</a></h2>
@@ -17,4 +20,6 @@
         </p>
      </div>
 </article>
+<br>
+
 {% endfor %}

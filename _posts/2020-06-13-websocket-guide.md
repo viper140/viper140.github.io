@@ -1,13 +1,11 @@
 ---
-title: WebSocket
-tags: [ubuntu,dns,ip]
-# title: 'WebSocket 入坑必看'
-# date: 2020-06-14T12:00:00+08:00
-# lastmod: 2020-06-14T12:00:00+08:00
-# tags: ['Java', 'WebSocket', 'Http']
-# categories: ['开发']
-# author: '王峰'
-# layout: post
+title: 'WebSocket 入坑必看'
+date: 2020-06-14T12:00:00+08:00
+lastmod: 2020-06-14T12:00:00+08:00
+tags: ['Java', 'WebSocket', 'Http']
+categories: ['开发']
+author: '王峰'
+layout: post
 ---
 
 - 介绍 WebSocket 的原理，了解原理后，用起来更放心大胆
