@@ -168,7 +168,7 @@ private static boolean isAllTicketsStatusOk(FlightOrder order, BigOrder bigOrder
 
 - 方法名准确的描述方法要做什么，方法内每行代码都写的像注释一样清晰易懂，注释则可以移除。
 - 对于 if-else 分支多的场景，不要试图用注释把复杂的逻辑讲清楚，多借鉴一下设计模式来优化代码结构，比如**策略模式**、**模板方法模式**等。
-![img](../imgs/if-else.png)
+![img](https://github.com/viper140/viper140.github.io/blob/master/_posts/2020/11/imgs/if-else.png)
 
 <!-- slide vertical = true -->
 
