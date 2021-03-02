@@ -1,8 +1,7 @@
 ---
-title: "搭建你的博客"
+title: '搭建你的博客'
 date: 2019-01-01T12:00:00+08:00
-author: "王峰"
-layout: post
+author: '王峰'
 ---
 
 jekyll、hexo、hugo 怎么选？
