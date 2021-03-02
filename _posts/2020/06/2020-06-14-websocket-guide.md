@@ -1,14 +1,14 @@
 ---
-title: "WebSocket 入坑必看"
+title: 'WebSocket 入坑必看'
 date: 2020-06-14T12:00:00+08:00
-tags: ["Java", "WebSocket", "Http"]
-categories: ["开发"]
-author: "王峰"
-layout: post
+lastmod: 2020-06-14T12:00:00+08:00
+tags: ['Java', 'WebSocket', 'Http']
+categories: ['开发']
+author: '王峰'
 ---
 
-- 介绍 WebSocket 的原理，了解原理后，用起来更放心大胆；
-- 类似技术对比，搞清楚自己的业务场景是不是需要使用 WebSocket；
+- 介绍 WebSocket 的原理，了解原理后，用起来更放心大胆
+- 类似技术对比，搞清楚自己的业务场景是不是需要使用 WebSocket
 - 使用过程中的经验分享，让你少走一些弯路
 
 <!--more-->
@@ -151,21 +151,21 @@ server {
 ```log
 com.tehang.callcenter.application.websocket.WebSocketConnection.onError
 java.io.EOFException: null
-	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1208)
-	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1142)
-	at org.apache.tomcat.websocket.server.WsFrameServer.onDataAvailable(WsFrameServer.java:72)
-	at org.apache.tomcat.websocket.server.WsFrameServer.doOnDataAvailable(WsFrameServer.java:171)
-	at org.apache.tomcat.websocket.server.WsFrameServer.notifyDataAvailable(WsFrameServer.java:151)
-	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.upgradeDispatch(WsHttpUpgradeHandler.java:148)
-	at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.dispatch(UpgradeProcessorInternal.java:54)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:53)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
+ at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1208)
+ at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1142)
+ at org.apache.tomcat.websocket.server.WsFrameServer.onDataAvailable(WsFrameServer.java:72)
+ at org.apache.tomcat.websocket.server.WsFrameServer.doOnDataAvailable(WsFrameServer.java:171)
+ at org.apache.tomcat.websocket.server.WsFrameServer.notifyDataAvailable(WsFrameServer.java:151)
+ at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.upgradeDispatch(WsHttpUpgradeHandler.java:148)
+ at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.dispatch(UpgradeProcessorInternal.java:54)
+ at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:53)
+ at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+ at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+ at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+ at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+ at java.base/java.lang.Thread.run(Thread.java:834)
 ```
 
 #### 4.3.2 原因
