@@ -1,0 +1,505 @@
+<!DOCTYPE html><html><head>
+      <title>feign&#xFF0C;&#x670D;&#x52A1;&#x95F4;&#x901A;&#x4FE1;&#x65B0;&#x59FF;&#x52BF;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <style>
+      /*!
+* reveal.js 4.0.2
+* https://revealjs.com
+* MIT licensed
+*
+* Copyright (C) 2020 Hakim El Hattab, https://hakim.se
+*/
+.reveal .r-stretch,.reveal .stretch{max-width:none;max-height:none}.reveal pre.r-stretch code,.reveal pre.stretch code{height:100%;max-height:100%;box-sizing:border-box}.reveal .r-fit-text{display:inline-block;white-space:nowrap}.reveal .r-stack{display:grid}.reveal .r-stack>*{grid-area:1/1;margin:auto}.reveal .r-hstack,.reveal .r-vstack{display:flex}.reveal .r-hstack img,.reveal .r-hstack video,.reveal .r-vstack img,.reveal .r-vstack video{min-width:0;min-height:0;-o-object-fit:contain;object-fit:contain}.reveal .r-vstack{flex-direction:column;align-items:center;justify-content:center}.reveal .r-hstack{flex-direction:row;align-items:center;justify-content:center}.reveal .items-stretch{align-items:stretch}.reveal .items-start{align-items:flex-start}.reveal .items-center{align-items:center}.reveal .items-end{align-items:flex-end}.reveal .justify-between{justify-content:space-between}.reveal .justify-around{justify-content:space-around}.reveal .justify-start{justify-content:flex-start}.reveal .justify-center{justify-content:center}.reveal .justify-end{justify-content:flex-end}html.reveal-full-page{width:100%;height:100%;height:100vh;height:calc(var(--vh,1vh) * 100);overflow:hidden}.reveal-viewport{height:100%;overflow:hidden;position:relative;line-height:1;margin:0;background-color:#fff;color:#000}.reveal .slides section .fragment{opacity:0;visibility:hidden;transition:all .2s ease;will-change:opacity}.reveal .slides section .fragment.visible{opacity:1;visibility:inherit}.reveal .slides section .fragment.disabled{transition:none}.reveal .slides section .fragment.grow{opacity:1;visibility:inherit}.reveal .slides section .fragment.grow.visible{transform:scale(1.3)}.reveal .slides section .fragment.shrink{opacity:1;visibility:inherit}.reveal .slides section .fragment.shrink.visible{transform:scale(.7)}.reveal .slides section .fragment.zoom-in{transform:scale(.1)}.reveal .slides section .fragment.zoom-in.visible{transform:none}.reveal .slides section .fragment.fade-out{opacity:1;visibility:inherit}.reveal .slides section .fragment.fade-out.visible{opacity:0;visibility:hidden}.reveal .slides section .fragment.semi-fade-out{opacity:1;visibility:inherit}.reveal .slides section .fragment.semi-fade-out.visible{opacity:.5;visibility:inherit}.reveal .slides section .fragment.strike{opacity:1;visibility:inherit}.reveal .slides section .fragment.strike.visible{text-decoration:line-through}.reveal .slides section .fragment.fade-up{transform:translate(0,40px)}.reveal .slides section .fragment.fade-up.visible{transform:translate(0,0)}.reveal .slides section .fragment.fade-down{transform:translate(0,-40px)}.reveal .slides section .fragment.fade-down.visible{transform:translate(0,0)}.reveal .slides section .fragment.fade-right{transform:translate(-40px,0)}.reveal .slides section .fragment.fade-right.visible{transform:translate(0,0)}.reveal .slides section .fragment.fade-left{transform:translate(40px,0)}.reveal .slides section .fragment.fade-left.visible{transform:translate(0,0)}.reveal .slides section .fragment.current-visible,.reveal .slides section .fragment.fade-in-then-out{opacity:0;visibility:hidden}.reveal .slides section .fragment.current-visible.current-fragment,.reveal .slides section .fragment.fade-in-then-out.current-fragment{opacity:1;visibility:inherit}.reveal .slides section .fragment.fade-in-then-semi-out{opacity:0;visibility:hidden}.reveal .slides section .fragment.fade-in-then-semi-out.visible{opacity:.5;visibility:inherit}.reveal .slides section .fragment.fade-in-then-semi-out.current-fragment{opacity:1;visibility:inherit}.reveal .slides section .fragment.highlight-blue,.reveal .slides section .fragment.highlight-current-blue,.reveal .slides section .fragment.highlight-current-green,.reveal .slides section .fragment.highlight-current-red,.reveal .slides section .fragment.highlight-green,.reveal .slides section .fragment.highlight-red{opacity:1;visibility:inherit}.reveal .slides section .fragment.highlight-red.visible{color:#ff2c2d}.reveal .slides section .fragment.highlight-green.visible{color:#17ff2e}.reveal .slides section .fragment.highlight-blue.visible{color:#1b91ff}.reveal .slides section .fragment.highlight-current-red.current-fragment{color:#ff2c2d}.reveal .slides section .fragment.highlight-current-green.current-fragment{color:#17ff2e}.reveal .slides section .fragment.highlight-current-blue.current-fragment{color:#1b91ff}.reveal:after{content:'';font-style:italic}.reveal iframe{z-index:1}.reveal a{position:relative}@keyframes bounce-right{0%,10%,25%,40%,50%{transform:translateX(0)}20%{transform:translateX(10px)}30%{transform:translateX(-5px)}}@keyframes bounce-left{0%,10%,25%,40%,50%{transform:translateX(0)}20%{transform:translateX(-10px)}30%{transform:translateX(5px)}}@keyframes bounce-down{0%,10%,25%,40%,50%{transform:translateY(0)}20%{transform:translateY(10px)}30%{transform:translateY(-5px)}}.reveal .controls{display:none;position:absolute;top:auto;bottom:12px;right:12px;left:auto;z-index:11;color:#000;pointer-events:none;font-size:10px}.reveal .controls button{position:absolute;padding:0;background-color:transparent;border:0;outline:0;cursor:pointer;color:currentColor;transform:scale(.9999);transition:color .2s ease,opacity .2s ease,transform .2s ease;z-index:2;pointer-events:auto;font-size:inherit;visibility:hidden;opacity:0;-webkit-appearance:none;-webkit-tap-highlight-color:transparent}.reveal .controls .controls-arrow:after,.reveal .controls .controls-arrow:before{content:'';position:absolute;top:0;left:0;width:2.6em;height:.5em;border-radius:.25em;background-color:currentColor;transition:all .15s ease,background-color .8s ease;transform-origin:.2em 50%;will-change:transform}.reveal .controls .controls-arrow{position:relative;width:3.6em;height:3.6em}.reveal .controls .controls-arrow:before{transform:translateX(.5em) translateY(1.55em) rotate(45deg)}.reveal .controls .controls-arrow:after{transform:translateX(.5em) translateY(1.55em) rotate(-45deg)}.reveal .controls .controls-arrow:hover:before{transform:translateX(.5em) translateY(1.55em) rotate(40deg)}.reveal .controls .controls-arrow:hover:after{transform:translateX(.5em) translateY(1.55em) rotate(-40deg)}.reveal .controls .controls-arrow:active:before{transform:translateX(.5em) translateY(1.55em) rotate(36deg)}.reveal .controls .controls-arrow:active:after{transform:translateX(.5em) translateY(1.55em) rotate(-36deg)}.reveal .controls .navigate-left{right:6.4em;bottom:3.2em;transform:translateX(-10px)}.reveal .controls .navigate-left.highlight{animation:bounce-left 2s 50 both ease-out}.reveal .controls .navigate-right{right:0;bottom:3.2em;transform:translateX(10px)}.reveal .controls .navigate-right .controls-arrow{transform:rotate(180deg)}.reveal .controls .navigate-right.highlight{animation:bounce-right 2s 50 both ease-out}.reveal .controls .navigate-up{right:3.2em;bottom:6.4em;transform:translateY(-10px)}.reveal .controls .navigate-up .controls-arrow{transform:rotate(90deg)}.reveal .controls .navigate-down{right:3.2em;bottom:-1.4em;padding-bottom:1.4em;transform:translateY(10px)}.reveal .controls .navigate-down .controls-arrow{transform:rotate(-90deg)}.reveal .controls .navigate-down.highlight{animation:bounce-down 2s 50 both ease-out}.reveal .controls[data-controls-back-arrows=faded] .navigate-up.enabled{opacity:.3}.reveal .controls[data-controls-back-arrows=faded] .navigate-up.enabled:hover{opacity:1}.reveal .controls[data-controls-back-arrows=hidden] .navigate-up.enabled{opacity:0;visibility:hidden}.reveal .controls .enabled{visibility:visible;opacity:.9;cursor:pointer;transform:none}.reveal .controls .enabled.fragmented{opacity:.5}.reveal .controls .enabled.fragmented:hover,.reveal .controls .enabled:hover{opacity:1}.reveal:not(.rtl) .controls[data-controls-back-arrows=faded] .navigate-left.enabled{opacity:.3}.reveal:not(.rtl) .controls[data-controls-back-arrows=faded] .navigate-left.enabled:hover{opacity:1}.reveal:not(.rtl) .controls[data-controls-back-arrows=hidden] .navigate-left.enabled{opacity:0;visibility:hidden}.reveal.rtl .controls[data-controls-back-arrows=faded] .navigate-right.enabled{opacity:.3}.reveal.rtl .controls[data-controls-back-arrows=faded] .navigate-right.enabled:hover{opacity:1}.reveal.rtl .controls[data-controls-back-arrows=hidden] .navigate-right.enabled{opacity:0;visibility:hidden}.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-down,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-up{display:none}.reveal:not(.has-vertical-slides) .controls .navigate-left,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-left{bottom:1.4em;right:5.5em}.reveal:not(.has-vertical-slides) .controls .navigate-right,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-right{bottom:1.4em;right:.5em}.reveal:not(.has-horizontal-slides) .controls .navigate-up{right:1.4em;bottom:5em}.reveal:not(.has-horizontal-slides) .controls .navigate-down{right:1.4em;bottom:.5em}.reveal.has-dark-background .controls{color:#fff}.reveal.has-light-background .controls{color:#000}.reveal.no-hover .controls .controls-arrow:active:before,.reveal.no-hover .controls .controls-arrow:hover:before{transform:translateX(.5em) translateY(1.55em) rotate(45deg)}.reveal.no-hover .controls .controls-arrow:active:after,.reveal.no-hover .controls .controls-arrow:hover:after{transform:translateX(.5em) translateY(1.55em) rotate(-45deg)}@media screen and (min-width:500px){.reveal .controls[data-controls-layout=edges]{top:0;right:0;bottom:0;left:0}.reveal .controls[data-controls-layout=edges] .navigate-down,.reveal .controls[data-controls-layout=edges] .navigate-left,.reveal .controls[data-controls-layout=edges] .navigate-right,.reveal .controls[data-controls-layout=edges] .navigate-up{bottom:auto;right:auto}.reveal .controls[data-controls-layout=edges] .navigate-left{top:50%;left:.8em;margin-top:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-right{top:50%;right:.8em;margin-top:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-up{top:.8em;left:50%;margin-left:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-down{bottom:-.3em;left:50%;margin-left:-1.8em}}.reveal .progress{position:absolute;display:none;height:3px;width:100%;bottom:0;left:0;z-index:10;background-color:rgba(0,0,0,.2);color:#fff}.reveal .progress:after{content:'';display:block;position:absolute;height:10px;width:100%;top:-10px}.reveal .progress span{display:block;height:100%;width:100%;background-color:currentColor;transition:transform .8s cubic-bezier(.26,.86,.44,.985);transform-origin:0 0;transform:scaleX(0)}.reveal .slide-number{position:absolute;display:block;right:8px;bottom:8px;z-index:31;font-family:Helvetica,sans-serif;font-size:12px;line-height:1;color:#fff;background-color:rgba(0,0,0,.4);padding:5px}.reveal .slide-number a{color:currentColor}.reveal .slide-number-delimiter{margin:0 3px}.reveal{position:relative;width:100%;height:100%;overflow:hidden;touch-action:pinch-zoom}.reveal.embedded{touch-action:pan-y}.reveal .slides{position:absolute;width:100%;height:100%;top:0;right:0;bottom:0;left:0;margin:auto;pointer-events:none;overflow:visible;z-index:1;text-align:center;perspective:600px;perspective-origin:50% 40%}.reveal .slides>section{perspective:600px}.reveal .slides>section,.reveal .slides>section>section{display:none;position:absolute;width:100%;pointer-events:auto;z-index:10;transform-style:flat;transition:transform-origin .8s cubic-bezier(.26,.86,.44,.985),transform .8s cubic-bezier(.26,.86,.44,.985),visibility .8s cubic-bezier(.26,.86,.44,.985),opacity .8s cubic-bezier(.26,.86,.44,.985)}.reveal[data-transition-speed=fast] .slides section{transition-duration:.4s}.reveal[data-transition-speed=slow] .slides section{transition-duration:1.2s}.reveal .slides section[data-transition-speed=fast]{transition-duration:.4s}.reveal .slides section[data-transition-speed=slow]{transition-duration:1.2s}.reveal .slides>section.stack{padding-top:0;padding-bottom:0;pointer-events:none;height:100%}.reveal .slides>section.present,.reveal .slides>section>section.present{display:block;z-index:11;opacity:1}.reveal .slides>section:empty,.reveal .slides>section>section:empty,.reveal .slides>section>section[data-background-interactive],.reveal .slides>section[data-background-interactive]{pointer-events:none}.reveal.center,.reveal.center .slides,.reveal.center .slides section{min-height:0!important}.reveal .slides>section:not(.present),.reveal .slides>section>section:not(.present){pointer-events:none}.reveal.overview .slides>section,.reveal.overview .slides>section>section{pointer-events:auto}.reveal .slides>section.future,.reveal .slides>section.past,.reveal .slides>section>section.future,.reveal .slides>section>section.past{opacity:0}.reveal.slide section{-webkit-backface-visibility:hidden;backface-visibility:hidden}.reveal .slides>section[data-transition=slide].past,.reveal .slides>section[data-transition~=slide-out].past,.reveal.slide .slides>section:not([data-transition]).past{transform:translate(-150%,0)}.reveal .slides>section[data-transition=slide].future,.reveal .slides>section[data-transition~=slide-in].future,.reveal.slide .slides>section:not([data-transition]).future{transform:translate(150%,0)}.reveal .slides>section>section[data-transition=slide].past,.reveal .slides>section>section[data-transition~=slide-out].past,.reveal.slide .slides>section>section:not([data-transition]).past{transform:translate(0,-150%)}.reveal .slides>section>section[data-transition=slide].future,.reveal .slides>section>section[data-transition~=slide-in].future,.reveal.slide .slides>section>section:not([data-transition]).future{transform:translate(0,150%)}.reveal.linear section{-webkit-backface-visibility:hidden;backface-visibility:hidden}.reveal .slides>section[data-transition=linear].past,.reveal .slides>section[data-transition~=linear-out].past,.reveal.linear .slides>section:not([data-transition]).past{transform:translate(-150%,0)}.reveal .slides>section[data-transition=linear].future,.reveal .slides>section[data-transition~=linear-in].future,.reveal.linear .slides>section:not([data-transition]).future{transform:translate(150%,0)}.reveal .slides>section>section[data-transition=linear].past,.reveal .slides>section>section[data-transition~=linear-out].past,.reveal.linear .slides>section>section:not([data-transition]).past{transform:translate(0,-150%)}.reveal .slides>section>section[data-transition=linear].future,.reveal .slides>section>section[data-transition~=linear-in].future,.reveal.linear .slides>section>section:not([data-transition]).future{transform:translate(0,150%)}.reveal .slides section[data-transition=default].stack,.reveal.default .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=default].past,.reveal .slides>section[data-transition~=default-out].past,.reveal.default .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=default].future,.reveal .slides>section[data-transition~=default-in].future,.reveal.default .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=default].past,.reveal .slides>section>section[data-transition~=default-out].past,.reveal.default .slides>section>section:not([data-transition]).past{transform:translate3d(0,-300px,0) rotateX(70deg) translate3d(0,-300px,0)}.reveal .slides>section>section[data-transition=default].future,.reveal .slides>section>section[data-transition~=default-in].future,.reveal.default .slides>section>section:not([data-transition]).future{transform:translate3d(0,300px,0) rotateX(-70deg) translate3d(0,300px,0)}.reveal .slides section[data-transition=convex].stack,.reveal.convex .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=convex].past,.reveal .slides>section[data-transition~=convex-out].past,.reveal.convex .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=convex].future,.reveal .slides>section[data-transition~=convex-in].future,.reveal.convex .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=convex].past,.reveal .slides>section>section[data-transition~=convex-out].past,.reveal.convex .slides>section>section:not([data-transition]).past{transform:translate3d(0,-300px,0) rotateX(70deg) translate3d(0,-300px,0)}.reveal .slides>section>section[data-transition=convex].future,.reveal .slides>section>section[data-transition~=convex-in].future,.reveal.convex .slides>section>section:not([data-transition]).future{transform:translate3d(0,300px,0) rotateX(-70deg) translate3d(0,300px,0)}.reveal .slides section[data-transition=concave].stack,.reveal.concave .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=concave].past,.reveal .slides>section[data-transition~=concave-out].past,.reveal.concave .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=concave].future,.reveal .slides>section[data-transition~=concave-in].future,.reveal.concave .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(-90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=concave].past,.reveal .slides>section>section[data-transition~=concave-out].past,.reveal.concave .slides>section>section:not([data-transition]).past{transform:translate3d(0,-80%,0) rotateX(-70deg) translate3d(0,-80%,0)}.reveal .slides>section>section[data-transition=concave].future,.reveal .slides>section>section[data-transition~=concave-in].future,.reveal.concave .slides>section>section:not([data-transition]).future{transform:translate3d(0,80%,0) rotateX(70deg) translate3d(0,80%,0)}.reveal .slides section[data-transition=zoom],.reveal.zoom .slides section:not([data-transition]){transition-timing-function:ease}.reveal .slides>section[data-transition=zoom].past,.reveal .slides>section[data-transition~=zoom-out].past,.reveal.zoom .slides>section:not([data-transition]).past{visibility:hidden;transform:scale(16)}.reveal .slides>section[data-transition=zoom].future,.reveal .slides>section[data-transition~=zoom-in].future,.reveal.zoom .slides>section:not([data-transition]).future{visibility:hidden;transform:scale(.2)}.reveal .slides>section>section[data-transition=zoom].past,.reveal .slides>section>section[data-transition~=zoom-out].past,.reveal.zoom .slides>section>section:not([data-transition]).past{transform:scale(16)}.reveal .slides>section>section[data-transition=zoom].future,.reveal .slides>section>section[data-transition~=zoom-in].future,.reveal.zoom .slides>section>section:not([data-transition]).future{transform:scale(.2)}.reveal.cube .slides{perspective:1300px}.reveal.cube .slides section{padding:30px;min-height:700px;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;transform-style:preserve-3d}.reveal.center.cube .slides section{min-height:0}.reveal.cube .slides section:not(.stack):before{content:'';position:absolute;display:block;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.1);border-radius:4px;transform:translateZ(-20px)}.reveal.cube .slides section:not(.stack):after{content:'';position:absolute;display:block;width:90%;height:30px;left:5%;bottom:0;background:0 0;z-index:1;border-radius:4px;box-shadow:0 95px 25px rgba(0,0,0,.2);transform:translateZ(-90px) rotateX(65deg)}.reveal.cube .slides>section.stack{padding:0;background:0 0}.reveal.cube .slides>section.past{transform-origin:100% 0;transform:translate3d(-100%,0,0) rotateY(-90deg)}.reveal.cube .slides>section.future{transform-origin:0 0;transform:translate3d(100%,0,0) rotateY(90deg)}.reveal.cube .slides>section>section.past{transform-origin:0 100%;transform:translate3d(0,-100%,0) rotateX(90deg)}.reveal.cube .slides>section>section.future{transform-origin:0 0;transform:translate3d(0,100%,0) rotateX(-90deg)}.reveal.page .slides{perspective-origin:0 50%;perspective:3000px}.reveal.page .slides section{padding:30px;min-height:700px;box-sizing:border-box;transform-style:preserve-3d}.reveal.page .slides section.past{z-index:12}.reveal.page .slides section:not(.stack):before{content:'';position:absolute;display:block;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.1);transform:translateZ(-20px)}.reveal.page .slides section:not(.stack):after{content:'';position:absolute;display:block;width:90%;height:30px;left:5%;bottom:0;background:0 0;z-index:1;border-radius:4px;box-shadow:0 95px 25px rgba(0,0,0,.2);-webkit-transform:translateZ(-90px) rotateX(65deg)}.reveal.page .slides>section.stack{padding:0;background:0 0}.reveal.page .slides>section.past{transform-origin:0 0;transform:translate3d(-40%,0,0) rotateY(-80deg)}.reveal.page .slides>section.future{transform-origin:100% 0;transform:translate3d(0,0,0)}.reveal.page .slides>section>section.past{transform-origin:0 0;transform:translate3d(0,-40%,0) rotateX(80deg)}.reveal.page .slides>section>section.future{transform-origin:0 100%;transform:translate3d(0,0,0)}.reveal .slides section[data-transition=fade],.reveal.fade .slides section:not([data-transition]),.reveal.fade .slides>section>section:not([data-transition]){transform:none;transition:opacity .5s}.reveal.fade.overview .slides section,.reveal.fade.overview .slides>section>section{transition:none}.reveal .slides section[data-transition=none],.reveal.none .slides section:not([data-transition]){transform:none;transition:none}.reveal .pause-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;visibility:hidden;opacity:0;z-index:100;transition:all 1s ease}.reveal .pause-overlay .resume-button{position:absolute;bottom:20px;right:20px;color:#ccc;border-radius:2px;padding:6px 14px;border:2px solid #ccc;font-size:16px;background:0 0;cursor:pointer}.reveal .pause-overlay .resume-button:hover{color:#fff;border-color:#fff}.reveal.paused .pause-overlay{visibility:visible;opacity:1}.reveal .no-transition,.reveal .no-transition *,.reveal .slides.disable-slide-transitions section{transition:none!important}.reveal .slides.disable-slide-transitions section{transform:none!important}.reveal .backgrounds{position:absolute;width:100%;height:100%;top:0;left:0;perspective:600px}.reveal .slide-background{display:none;position:absolute;width:100%;height:100%;opacity:0;visibility:hidden;overflow:hidden;background-color:rgba(0,0,0,0);transition:all .8s cubic-bezier(.26,.86,.44,.985)}.reveal .slide-background-content{position:absolute;width:100%;height:100%;background-position:50% 50%;background-repeat:no-repeat;background-size:cover}.reveal .slide-background.stack{display:block}.reveal .slide-background.present{opacity:1;visibility:visible;z-index:2}.print-pdf .reveal .slide-background{opacity:1!important;visibility:visible!important}.reveal .slide-background video{position:absolute;width:100%;height:100%;max-width:none;max-height:none;top:0;left:0;-o-object-fit:cover;object-fit:cover}.reveal .slide-background[data-background-size=contain] video{-o-object-fit:contain;object-fit:contain}.reveal>.backgrounds .slide-background[data-background-transition=none],.reveal[data-background-transition=none]>.backgrounds .slide-background{transition:none}.reveal>.backgrounds .slide-background[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background{opacity:1;-webkit-backface-visibility:hidden;backface-visibility:hidden}.reveal>.backgrounds .slide-background.past[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background.past{transform:translate(-100%,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background.future{transform:translate(100%,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background>.slide-background.past{transform:translate(0,-100%)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background>.slide-background.future{transform:translate(0,100%)}.reveal>.backgrounds .slide-background.past[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background.past{opacity:0;transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background.future{opacity:0;transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background>.slide-background.past{opacity:0;transform:translate3d(0,-100%,0) rotateX(90deg) translate3d(0,-100%,0)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background>.slide-background.future{opacity:0;transform:translate3d(0,100%,0) rotateX(-90deg) translate3d(0,100%,0)}.reveal>.backgrounds .slide-background.past[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background.past{opacity:0;transform:translate3d(-100%,0,0) rotateY(90deg) translate3d(-100%,0,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background.future{opacity:0;transform:translate3d(100%,0,0) rotateY(-90deg) translate3d(100%,0,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background>.slide-background.past{opacity:0;transform:translate3d(0,-100%,0) rotateX(-90deg) translate3d(0,-100%,0)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background>.slide-background.future{opacity:0;transform:translate3d(0,100%,0) rotateX(90deg) translate3d(0,100%,0)}.reveal>.backgrounds .slide-background[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background{transition-timing-function:ease}.reveal>.backgrounds .slide-background.past[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background.past{opacity:0;visibility:hidden;transform:scale(16)}.reveal>.backgrounds .slide-background.future[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background.future{opacity:0;visibility:hidden;transform:scale(.2)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background>.slide-background.past{opacity:0;visibility:hidden;transform:scale(16)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background>.slide-background.future{opacity:0;visibility:hidden;transform:scale(.2)}.reveal[data-transition-speed=fast]>.backgrounds .slide-background{transition-duration:.4s}.reveal[data-transition-speed=slow]>.backgrounds .slide-background{transition-duration:1.2s}.reveal [data-auto-animate-target^=unmatched]{will-change:opacity}.reveal section[data-auto-animate]:not(.stack):not([data-auto-animate=running]) [data-auto-animate-target^=unmatched]{opacity:0}.reveal.overview{perspective-origin:50% 50%;perspective:700px}.reveal.overview .slides{-moz-transform-style:preserve-3d}.reveal.overview .slides section{height:100%;top:0!important;opacity:1!important;overflow:hidden;visibility:visible!important;cursor:pointer;box-sizing:border-box}.reveal.overview .slides section.present,.reveal.overview .slides section:hover{outline:10px solid rgba(150,150,150,.4);outline-offset:10px}.reveal.overview .slides section .fragment{opacity:1;transition:none}.reveal.overview .slides section:after,.reveal.overview .slides section:before{display:none!important}.reveal.overview .slides>section.stack{padding:0;top:0!important;background:0 0;outline:0;overflow:visible}.reveal.overview .backgrounds{perspective:inherit;-moz-transform-style:preserve-3d}.reveal.overview .backgrounds .slide-background{opacity:1;visibility:visible;outline:10px solid rgba(150,150,150,.1);outline-offset:10px}.reveal.overview .backgrounds .slide-background.stack{overflow:visible}.reveal.overview .slides section,.reveal.overview-deactivating .slides section{transition:none}.reveal.overview .backgrounds .slide-background,.reveal.overview-deactivating .backgrounds .slide-background{transition:none}.reveal.rtl .slides,.reveal.rtl .slides h1,.reveal.rtl .slides h2,.reveal.rtl .slides h3,.reveal.rtl .slides h4,.reveal.rtl .slides h5,.reveal.rtl .slides h6{direction:rtl;font-family:sans-serif}.reveal.rtl code,.reveal.rtl pre{direction:ltr}.reveal.rtl ol,.reveal.rtl ul{text-align:right}.reveal.rtl .progress span{transform-origin:100% 0}.reveal.has-parallax-background .backgrounds{transition:all .8s ease}.reveal.has-parallax-background[data-transition-speed=fast] .backgrounds{transition-duration:.4s}.reveal.has-parallax-background[data-transition-speed=slow] .backgrounds{transition-duration:1.2s}.reveal>.overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(0,0,0,.9);transition:all .3s ease}.reveal>.overlay .spinner{position:absolute;display:block;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;z-index:10;background-image:url(data:image/gif;base64,R0lGODlhIAAgAPMAAJmZmf%2F%2F%2F6%2Bvr8nJybW1tcDAwOjo6Nvb26ioqKOjo7Ozs%2FLy8vz8%2FAAAAAAAAAAAACH%2FC05FVFNDQVBFMi4wAwEAAAAh%2FhpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh%2BQQJCgAAACwAAAAAIAAgAAAE5xDISWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBkCEDskxTBDAZwuAkkqIfxIQyhBQBFvAQSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5gDqXGLDaC457D1zZ%2FV%2FnmOM82XiHRLYKhKP1oZmADdEAAAh%2BQQJCgAAACwAAAAAIAAgAAAE6hDISWlZpOrNp1lGNRSdRpDUolIGw5RUYhhHukqFu8DsrEyqnWThGvAmhVlteBvojpTDDBUEIFwMFBRAmBkSgOrBFZogCASwBDEY%2FCZSg7GSE0gSCjQBMVG023xWBhklAnoEdhQEfyNqMIcKjhRsjEdnezB%2BA4k8gTwJhFuiW4dokXiloUepBAp5qaKpp6%2BHo7aWW54wl7obvEe0kRuoplCGepwSx2jJvqHEmGt6whJpGpfJCHmOoNHKaHx61WiSR92E4lbFoq%2BB6QDtuetcaBPnW6%2BO7wDHpIiK9SaVK5GgV543tzjgGcghAgAh%2BQQJCgAAACwAAAAAIAAgAAAE7hDISSkxpOrN5zFHNWRdhSiVoVLHspRUMoyUakyEe8PTPCATW9A14E0UvuAKMNAZKYUZCiBMuBakSQKG8G2FzUWox2AUtAQFcBKlVQoLgQReZhQlCIJesQXI5B0CBnUMOxMCenoCfTCEWBsJColTMANldx15BGs8B5wlCZ9Po6OJkwmRpnqkqnuSrayqfKmqpLajoiW5HJq7FL1Gr2mMMcKUMIiJgIemy7xZtJsTmsM4xHiKv5KMCXqfyUCJEonXPN2rAOIAmsfB3uPoAK%2B%2BG%2Bw48edZPK%2BM6hLJpQg484enXIdQFSS1u6UhksENEQAAIfkECQoAAAAsAAAAACAAIAAABOcQyEmpGKLqzWcZRVUQnZYg1aBSh2GUVEIQ2aQOE%2BG%2BcD4ntpWkZQj1JIiZIogDFFyHI0UxQwFugMSOFIPJftfVAEoZLBbcLEFhlQiqGp1Vd140AUklUN3eCA51C1EWMzMCezCBBmkxVIVHBWd3HHl9JQOIJSdSnJ0TDKChCwUJjoWMPaGqDKannasMo6WnM562R5YluZRwur0wpgqZE7NKUm%2BFNRPIhjBJxKZteWuIBMN4zRMIVIhffcgojwCF117i4nlLnY5ztRLsnOk%2BaV%2BoJY7V7m76PdkS4trKcdg0Zc0tTcKkRAAAIfkECQoAAAAsAAAAACAAIAAABO4QyEkpKqjqzScpRaVkXZWQEximw1BSCUEIlDohrft6cpKCk5xid5MNJTaAIkekKGQkWyKHkvhKsR7ARmitkAYDYRIbUQRQjWBwJRzChi9CRlBcY1UN4g0%2FVNB0AlcvcAYHRyZPdEQFYV8ccwR5HWxEJ02YmRMLnJ1xCYp0Y5idpQuhopmmC2KgojKasUQDk5BNAwwMOh2RtRq5uQuPZKGIJQIGwAwGf6I0JXMpC8C7kXWDBINFMxS4DKMAWVWAGYsAdNqW5uaRxkSKJOZKaU3tPOBZ4DuK2LATgJhkPJMgTwKCdFjyPHEnKxFCDhEAACH5BAkKAAAALAAAAAAgACAAAATzEMhJaVKp6s2nIkolIJ2WkBShpkVRWqqQrhLSEu9MZJKK9y1ZrqYK9WiClmvoUaF8gIQSNeF1Er4MNFn4SRSDARWroAIETg1iVwuHjYB1kYc1mwruwXKC9gmsJXliGxc%2BXiUCby9ydh1sOSdMkpMTBpaXBzsfhoc5l58Gm5yToAaZhaOUqjkDgCWNHAULCwOLaTmzswadEqggQwgHuQsHIoZCHQMMQgQGubVEcxOPFAcMDAYUA85eWARmfSRQCdcMe0zeP1AAygwLlJtPNAAL19DARdPzBOWSm1brJBi45soRAWQAAkrQIykShQ9wVhHCwCQCACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiRMDjI0Fd30%2FiI2UA5GSS5UDj2l6NoqgOgN4gksEBgYFf0FDqKgHnyZ9OX8HrgYHdHpcHQULXAS2qKpENRg7eAMLC7kTBaixUYFkKAzWAAnLC7FLVxLWDBLKCwaKTULgEwbLA4hJtOkSBNqITT3xEgfLpBtzE%2FjiuL04RGEBgwWhShRgQExHBAAh%2BQQJCgAAACwAAAAAIAAgAAAE7xDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfZiCqGk5dTESJeaOAlClzsJsqwiJwiqnFrb2nS9kmIcgEsjQydLiIlHehhpejaIjzh9eomSjZR%2BipslWIRLAgMDOR2DOqKogTB9pCUJBagDBXR6XB0EBkIIsaRsGGMMAxoDBgYHTKJiUYEGDAzHC9EACcUGkIgFzgwZ0QsSBcXHiQvOwgDdEwfFs0sDzt4S6BK4xYjkDOzn0unFeBzOBijIm1Dgmg5YFQwsCMjp1oJ8LyIAACH5BAkKAAAALAAAAAAgACAAAATwEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GGl6NoiPOH16iZKNlH6KmyWFOggHhEEvAwwMA0N9GBsEC6amhnVcEwavDAazGwIDaH1ipaYLBUTCGgQDA8NdHz0FpqgTBwsLqAbWAAnIA4FWKdMLGdYGEgraigbT0OITBcg5QwPT4xLrROZL6AuQAPUS7bxLpoWidY0JtxLHKhwwMJBTHgPKdEQAACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GAULDJCRiXo1CpGXDJOUjY%2BYip9DhToJA4RBLwMLCwVDfRgbBAaqqoZ1XBMHswsHtxtFaH1iqaoGNgAIxRpbFAgfPQSqpbgGBqUD1wBXeCYp1AYZ19JJOYgH1KwA4UBvQwXUBxPqVD9L3sbp2BNk2xvvFPJd%2BMFCN6HAAIKgNggY0KtEBAAh%2BQQJCgAAACwAAAAAIAAgAAAE6BDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfYIDMaAFdTESJeaEDAIMxYFqrOUaNW4E4ObYcCXaiBVEgULe0NJaxxtYksjh2NLkZISgDgJhHthkpU4mW6blRiYmZOlh4JWkDqILwUGBnE6TYEbCgevr0N1gH4At7gHiRpFaLNrrq8HNgAJA70AWxQIH1%2BvsYMDAzZQPC9VCNkDWUhGkuE5PxJNwiUK4UfLzOlD4WvzAHaoG9nxPi5d%2BjYUqfAhhykOFwJWiAAAIfkECQoAAAAsAAAAACAAIAAABPAQyElpUqnqzaciSoVkXVUMFaFSwlpOCcMYlErAavhOMnNLNo8KsZsMZItJEIDIFSkLGQoQTNhIsFehRww2CQLKF0tYGKYSg%2BygsZIuNqJksKgbfgIGepNo2cIUB3V1B3IvNiBYNQaDSTtfhhx0CwVPI0UJe0%2Bbm4g5VgcGoqOcnjmjqDSdnhgEoamcsZuXO1aWQy8KAwOAuTYYGwi7w5h%2BKr0SJ8MFihpNbx%2B4Erq7BYBuzsdiH1jCAzoSfl0rVirNbRXlBBlLX%2BBP0XJLAPGzTkAuAOqb0WT5AH7OcdCm5B8TgRwSRKIHQtaLCwg1RAAAOwAAAAAAAAAAAA%3D%3D);visibility:visible;opacity:.6;transition:all .3s ease}.reveal>.overlay header{position:absolute;left:0;top:0;width:100%;padding:5px;z-index:2;box-sizing:border-box}.reveal>.overlay header a{display:inline-block;width:40px;height:40px;line-height:36px;padding:0 10px;float:right;opacity:.6;box-sizing:border-box}.reveal>.overlay header a:hover{opacity:1}.reveal>.overlay header a .icon{display:inline-block;width:20px;height:20px;background-position:50% 50%;background-size:100%;background-repeat:no-repeat}.reveal>.overlay header a.close .icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABkklEQVRYR8WX4VHDMAxG6wnoJrABZQPYBCaBTWAD2g1gE5gg6OOsXuxIlr40d81dfrSJ9V4c2VLK7spHuTJ/5wpM07QXuXc5X0opX2tEJcadjHuV80li/FgxTIEK/5QBCICBD6xEhSMGHgQPgBgLiYVAB1dpSqKDawxTohFw4JSEA3clzgIBPCURwE2JucBR7rhPJJv5OpJwDX+SfDjgx1wACQeJG1aChP9K/IMmdZ8DtESV1WyP3Bt4MwM6sj4NMxMYiqUWHQu4KYA/SYkIjOsm3BXYWMKFDwU2khjCQ4ELJUJ4SmClRArOCmSXGuKma0fYD5CbzHxFpCSGAhfAVSSUGDUk2BWZaff2g6GE15BsBQ9nwmpIGDiyHQddwNTMKkbZaf9fajXQca1EX44puJZUsnY0ObGmITE3GVLCbEhQUjGVt146j6oasWN+49Vph2w1pZ5EansNZqKBm1txbU57iRRcZ86RWMDdWtBJUHBHwoQPi1GV+JCbntmvok7iTX4/Up9mgyTc/FJYDTcndgH/AA5A/CHsyEkVAAAAAElFTkSuQmCC)}.reveal>.overlay header a.external .icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAcElEQVRYR+2WSQoAIQwEzf8f7XiOMkUQxUPlGkM3hVmiQfQR9GYnH1SsAQlI4DiBqkCMoNb9y2e90IAEJPAcgdznU9+engMaeJ7Azh5Y1U67gAho4DqBqmB1buAf0MB1AlVBek83ZPkmJMGc1wAR+AAqod/B97TRpQAAAABJRU5ErkJggg==)}.reveal>.overlay .viewport{position:absolute;display:flex;top:50px;right:0;bottom:0;left:0}.reveal>.overlay.overlay-preview .viewport iframe{width:100%;height:100%;max-width:100%;max-height:100%;border:0;opacity:0;visibility:hidden;transition:all .3s ease}.reveal>.overlay.overlay-preview.loaded .viewport iframe{opacity:1;visibility:visible}.reveal>.overlay.overlay-preview.loaded .viewport-inner{position:absolute;z-index:-1;left:0;top:45%;width:100%;text-align:center;letter-spacing:normal}.reveal>.overlay.overlay-preview .x-frame-error{opacity:0;transition:opacity .3s ease .3s}.reveal>.overlay.overlay-preview.loaded .x-frame-error{opacity:1}.reveal>.overlay.overlay-preview.loaded .spinner{opacity:0;visibility:hidden;transform:scale(.2)}.reveal>.overlay.overlay-help .viewport{overflow:auto;color:#fff}.reveal>.overlay.overlay-help .viewport .viewport-inner{width:600px;margin:auto;padding:20px 20px 80px 20px;text-align:center;letter-spacing:normal}.reveal>.overlay.overlay-help .viewport .viewport-inner .title{font-size:20px}.reveal>.overlay.overlay-help .viewport .viewport-inner table{border:1px solid #fff;border-collapse:collapse;font-size:16px}.reveal>.overlay.overlay-help .viewport .viewport-inner table td,.reveal>.overlay.overlay-help .viewport .viewport-inner table th{width:200px;padding:14px;border:1px solid #fff;vertical-align:middle}.reveal>.overlay.overlay-help .viewport .viewport-inner table th{padding-top:20px;padding-bottom:20px}.reveal .playback{position:absolute;left:15px;bottom:20px;z-index:30;cursor:pointer;transition:all .4s ease;-webkit-tap-highlight-color:transparent}.reveal.overview .playback{opacity:0;visibility:hidden}.reveal .hljs{min-height:100%}.reveal .hljs table{margin:initial}.reveal .hljs-ln-code,.reveal .hljs-ln-numbers{padding:0;border:0}.reveal .hljs-ln-numbers{opacity:.6;padding-right:.75em;text-align:right;vertical-align:top}.reveal .hljs.has-highlights tr:not(.highlight-line){opacity:.4}.reveal .hljs:not(:first-child).fragment{position:absolute;top:0;left:0;width:100%;box-sizing:border-box}.reveal pre[data-auto-animate-target]{overflow:hidden}.reveal pre[data-auto-animate-target] code{height:100%}.reveal .roll{display:inline-block;line-height:1.2;overflow:hidden;vertical-align:top;perspective:400px;perspective-origin:50% 50%}.reveal .roll:hover{background:0 0;text-shadow:none}.reveal .roll span{display:block;position:relative;padding:0 2px;pointer-events:none;transition:all .4s ease;transform-origin:50% 0;transform-style:preserve-3d;-webkit-backface-visibility:hidden;backface-visibility:hidden}.reveal .roll:hover span{background:rgba(0,0,0,.5);transform:translate3d(0,0,-45px) rotateX(90deg)}.reveal .roll span:after{content:attr(data-title);display:block;position:absolute;left:0;top:0;padding:0 2px;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform-origin:50% 0;transform:translate3d(0,110%,0) rotateX(-90deg)}.reveal aside.notes{display:none}.reveal .speaker-notes{display:none;position:absolute;width:33.33333%;height:100%;top:0;left:100%;padding:14px 18px 14px 18px;z-index:1;font-size:18px;line-height:1.4;border:1px solid rgba(0,0,0,.05);color:#222;background-color:#f5f5f5;overflow:auto;box-sizing:border-box;text-align:left;font-family:Helvetica,sans-serif;-webkit-overflow-scrolling:touch}.reveal .speaker-notes .notes-placeholder{color:#ccc;font-style:italic}.reveal .speaker-notes:focus{outline:0}.reveal .speaker-notes:before{content:'Speaker notes';display:block;margin-bottom:10px;opacity:.5}.reveal.show-notes{max-width:75%;overflow:visible}.reveal.show-notes .speaker-notes{display:block}@media screen and (min-width:1600px){.reveal .speaker-notes{font-size:20px}}@media screen and (max-width:1024px){.reveal.show-notes{border-left:0;max-width:none;max-height:70%;max-height:70vh;overflow:visible}.reveal.show-notes .speaker-notes{top:100%;left:0;width:100%;height:42.85714%;height:30vh;border:0}}@media screen and (max-width:600px){.reveal.show-notes{max-height:60%;max-height:60vh}.reveal.show-notes .speaker-notes{top:100%;height:66.66667%;height:40vh}.reveal .speaker-notes{font-size:14px}}.zoomed .reveal *,.zoomed .reveal :after,.zoomed .reveal :before{-webkit-backface-visibility:visible!important;backface-visibility:visible!important}.zoomed .reveal .controls,.zoomed .reveal .progress{opacity:0}.zoomed .reveal .roll span{background:0 0}.zoomed .reveal .roll span:after{visibility:hidden}html.print-pdf *{-webkit-print-color-adjust:exact}html.print-pdf{width:100%;height:100%;overflow:visible}html.print-pdf body{margin:0 auto!important;border:0;padding:0;float:none!important;overflow:visible}html.print-pdf .nestedarrow,html.print-pdf .reveal .controls,html.print-pdf .reveal .playback,html.print-pdf .reveal .progress,html.print-pdf .reveal.overview,html.print-pdf .state-background{display:none!important}html.print-pdf .reveal pre code{overflow:hidden!important;font-family:Courier,'Courier New',monospace!important}html.print-pdf .reveal{width:auto!important;height:auto!important;overflow:hidden!important}html.print-pdf .reveal .slides{position:static;width:100%!important;height:auto!important;zoom:1!important;pointer-events:initial;left:auto;top:auto;margin:0!important;padding:0!important;overflow:visible;display:block;perspective:none;perspective-origin:50% 50%}html.print-pdf .reveal .slides .pdf-page{position:relative;overflow:hidden;z-index:1;page-break-after:always}html.print-pdf .reveal .slides section{visibility:visible!important;display:block!important;position:absolute!important;margin:0!important;padding:0!important;box-sizing:border-box!important;min-height:1px;opacity:1!important;transform-style:flat!important;transform:none!important}html.print-pdf .reveal section.stack{position:relative!important;margin:0!important;padding:0!important;page-break-after:avoid!important;height:auto!important;min-height:auto!important}html.print-pdf .reveal img{box-shadow:none}html.print-pdf .reveal .backgrounds{display:none}html.print-pdf .reveal .slide-background{display:block!important;position:absolute;top:0;left:0;width:100%;height:100%;z-index:auto!important}html.print-pdf .reveal.show-notes{max-width:none;max-height:none}html.print-pdf .reveal .speaker-notes-pdf{display:block;width:100%;height:auto;max-height:none;top:auto;right:auto;bottom:auto;left:auto;z-index:100}html.print-pdf .reveal .speaker-notes-pdf[data-layout=separate-page]{position:relative;color:inherit;background-color:transparent;padding:20px;page-break-after:always;border:0}html.print-pdf .reveal .slide-number-pdf{display:block;position:absolute;font-size:14px}html.print-pdf .aria-status{display:none}@media print{html:not(.print-pdf){background:#fff;width:auto;height:auto;overflow:visible}html:not(.print-pdf) body{background:#fff;font-size:20pt;width:auto;height:auto;border:0;margin:0 5%;padding:0;overflow:visible;float:none!important}html:not(.print-pdf) .controls,html:not(.print-pdf) .fork-reveal,html:not(.print-pdf) .nestedarrow,html:not(.print-pdf) .reveal .backgrounds,html:not(.print-pdf) .reveal .progress,html:not(.print-pdf) .reveal .slide-number,html:not(.print-pdf) .share-reveal,html:not(.print-pdf) .state-background{display:none!important}html:not(.print-pdf) body,html:not(.print-pdf) li,html:not(.print-pdf) p,html:not(.print-pdf) td{font-size:20pt!important;color:#000}html:not(.print-pdf) h1,html:not(.print-pdf) h2,html:not(.print-pdf) h3,html:not(.print-pdf) h4,html:not(.print-pdf) h5,html:not(.print-pdf) h6{color:#000!important;height:auto;line-height:normal;text-align:left;letter-spacing:normal}html:not(.print-pdf) h1{font-size:28pt!important}html:not(.print-pdf) h2{font-size:24pt!important}html:not(.print-pdf) h3{font-size:22pt!important}html:not(.print-pdf) h4{font-size:22pt!important;font-variant:small-caps}html:not(.print-pdf) h5{font-size:21pt!important}html:not(.print-pdf) h6{font-size:20pt!important;font-style:italic}html:not(.print-pdf) a:link,html:not(.print-pdf) a:visited{color:#000!important;font-weight:700;text-decoration:underline}html:not(.print-pdf) div,html:not(.print-pdf) ol,html:not(.print-pdf) p,html:not(.print-pdf) ul{visibility:visible;position:static;width:auto;height:auto;display:block;overflow:visible;margin:0;text-align:left!important}html:not(.print-pdf) .reveal pre,html:not(.print-pdf) .reveal table{margin-left:0;margin-right:0}html:not(.print-pdf) .reveal pre code{padding:20px}html:not(.print-pdf) .reveal blockquote{margin:20px 0}html:not(.print-pdf) .reveal .slides{position:static!important;width:auto!important;height:auto!important;left:0!important;top:0!important;margin-left:0!important;margin-top:0!important;padding:0!important;zoom:1!important;transform:none!important;overflow:visible!important;display:block!important;text-align:left!important;perspective:none;perspective-origin:50% 50%}html:not(.print-pdf) .reveal .slides section{visibility:visible!important;position:static!important;width:auto!important;height:auto!important;display:block!important;overflow:visible!important;left:0!important;top:0!important;margin-left:0!important;margin-top:0!important;padding:60px 20px!important;z-index:auto!important;opacity:1!important;page-break-after:always!important;transform-style:flat!important;transform:none!important;transition:none!important}html:not(.print-pdf) .reveal .slides section.stack{padding:0!important}html:not(.print-pdf) .reveal section:last-of-type{page-break-after:avoid!important}html:not(.print-pdf) .reveal section .fragment{opacity:1!important;visibility:visible!important;transform:none!important}html:not(.print-pdf) .reveal section img{display:block;margin:15px 0;background:#fff;border:1px solid #666;box-shadow:none}html:not(.print-pdf) .reveal section small{font-size:.8em}html:not(.print-pdf) .reveal .hljs{max-height:100%;white-space:pre-wrap;word-wrap:break-word;word-break:break-word;font-size:15pt}html:not(.print-pdf) .reveal .hljs .hljs-ln-numbers{white-space:nowrap}html:not(.print-pdf) .reveal .hljs td{font-size:inherit!important;color:inherit!important}}
+      
+      </style>
+      <link rel="stylesheet" href="file:////Users/victor/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.18/node_modules/@shd101wyy/mume/dependencies/reveal/css/theme/white.css">
+      <link rel="stylesheet" href="file:////Users/victor/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.18/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+        <script src="file:////Users/victor/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.18/node_modules/@shd101wyy/mume/dependencies/reveal/lib/js/head.min.js"></script>
+        <script src="file:////Users/victor/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.18/node_modules/@shd101wyy/mume/dependencies/reveal/js/reveal.js"></script>
+      
+      
+      
+      
+      
+      
+      <style>
+      /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+abap+actionscript+ada+apacheconf+apl+applescript+asciidoc+aspnet+autoit+autohotkey+bash+basic+batch+c+brainfuck+bro+bison+csharp+cpp+coffeescript+ruby+css-extras+d+dart+django+diff+docker+eiffel+elixir+erlang+fsharp+fortran+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+http+icon+inform7+ini+j+jade+java+jolie+json+julia+keyman+kotlin+latex+less+livescript+lolcode+lua+makefile+markdown+matlab+mel+mizar+monkey+nasm+nginx+nim+nix+nsis+objectivec+ocaml+oz+parigp+parser+pascal+perl+php+php-extras+powershell+processing+prolog+properties+protobuf+puppet+pure+python+q+qore+r+jsx+reason+rest+rip+roboconf+crystal+rust+sas+sass+scss+scala+scheme+smalltalk+smarty+sql+stylus+swift+tcl+textile+twig+typescript+vbnet+verilog+vhdl+vim+wiki+xojo+yaml */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/* highlight */
+pre[data-line] {
+	position: relative;
+	padding: 1em 0 1em 3em;
+  }
+  pre[data-line] .line-highlight-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	display: block;
+	width: 100%;
+  }
+  
+  pre[data-line] .line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em;
+	background: hsla(24, 20%, 50%,.08);
+	background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+	pointer-events: none;
+	line-height: inherit;
+	white-space: pre;
+  }
+  
+  pre[data-line] .line-highlight:before, 
+  pre[data-line] .line-highlight[data-end]:after {
+	content: attr(data-start);
+	position: absolute;
+	top: .4em;
+	left: .6em;
+	min-width: 1em;
+	padding: 0 .5em;
+	background-color: hsla(24, 20%, 50%,.4);
+	color: hsl(24, 20%, 95%);
+	font: bold 65%/1.5 sans-serif;
+	text-align: center;
+	vertical-align: .3em;
+	border-radius: 999px;
+	text-shadow: none;
+	box-shadow: 0 1px white;
+  }
+  
+  pre[data-line] .line-highlight[data-end]:after {
+	content: attr(data-end);
+	top: auto;
+	bottom: .4em;
+  }.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export" data-presentation-mode>
+      <div class="mume markdown-preview  " data-presentation-mode>
+      
+    <div style="display:none;"><ul>
+<li>Feign makes writing java http clients easier</li>
+<li>&#x672C;&#x6587;&#x5E26;&#x4F60;&#x8D70;&#x8FDB; feign &#x7684;&#x4E16;&#x754C;&#xFF0C;&#x5FEB;&#x901F;&#x4E0A;&#x624B;&#x548C;&#x5165;&#x95E8;</li>
+</ul>
+<h2 class="mume-header" id="1-%E7%AE%80%E4%BB%8B">1 &#x7B80;&#x4ECB;</h2>
+
+</div>
+    <div class="reveal">
+      <div class="slides">
+        <section vertical="true" true="true" lineno="16" class="slide " data-line="16" data-h="-1" data-v="1">
+<h3 class="mume-header" id="11-%E6%98%AF%E4%BB%80%E4%B9%88">1.1 &#x662F;&#x4EC0;&#x4E48;</h3>
+
+<ul>
+<li>feign &#x662F;&#x4E00;&#x6B3E;<strong>&#x58F0;&#x660E;&#x5F0F;</strong>&#x7684; web service &#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x5B83;&#x8BA9;&#x5FAE;&#x670D;&#x52A1;&#x4E4B;&#x95F4;&#x7684;&#x8C03;&#x7528;&#x53D8;&#x5F97;&#x66F4;&#x7B80;&#x5355;</li>
+<li>feign &#x901A;&#x8FC7;&#x5C06;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x4E3A;&#x6A21;&#x677F;&#x5316;&#x8BF7;&#x6C42;&#x6765;&#x5DE5;&#x4F5C;&#xFF0C;&#x53C2;&#x6570;&#x5728;&#x8F93;&#x51FA;&#x4E4B;&#x524D;&#x76F4;&#x63A5;&#x5E94;&#x7528;&#x4E8E;&#x8FD9;&#x4E9B;&#x6A21;&#x677F;</li>
+<li>&#x5176;&#x8BBE;&#x8BA1;&#x7075;&#x611F;&#x6765;&#x6E90;&#x4E8E; Retrofit, JAXRS-2.0, WebSocket</li>
+</ul>
+<pre data-role="codeBlock" data-info="text" class="language-text">- java &#x539F;&#x751F; HttpURLConnection &#x504F;&#x5E95;&#x5C42;&#xFF0C;&#x5F88;&#x96BE;&#x7528;
+- Apache HttpClient &#x6709;&#x5F88;&#x591A;&#x4F18;&#x79C0;&#x7279;&#x6027;&#xFF0C;&#x4F7F;&#x7528;&#x6700;&#x5E7F;&#xFF0C;&#x4F46;&#x7528;&#x8D77;&#x6765;&#x4E5F;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;
+- OkHttp &#x6709;&#x7740;&#x66F4;&#x4F18;&#x79C0;&#x7684;&#x8FDE;&#x63A5;&#x6C60;
+- spring RestTemplate &#x63D0;&#x4F9B;&#x4E0A;&#x5C42;&#x5C01;&#x88C5;&#xFF0C;&#x63D0;&#x4F9B;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x597D;&#x7528;&#x7684; API&#xFF0C;&#x4E0D;&#x5173;&#x5FC3;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;
+- spring cloud &#x4E0B;&#xFF0C;&#x4F7F;&#x7528; feign &#x66F4;&#x7B80;&#x5355;&#x4F18;&#x96C5;
+</pre><ul>
+<li>feign &#x6B63;&#x5728;&#x505A;&#x7684;&#x4E8B;&#x60C5; <a href="https://blog.csdn.net/f641385712/article/details/104211659">https://blog.csdn.net/f641385712/article/details/104211659</a></li>
+</ul>
+</section><section vertical="true" true="true" lineno="34" class="slide " data-line="34" data-h="-1" data-v="2">
+<h3 class="mume-header" id="12-%E7%89%B9%E6%80%A7">1.2 &#x7279;&#x6027;</h3>
+
+<p><img src="https://github.com/viper140/viper140.github.io/blob/master/_posts/2021/04/imgs/feign-feature-overview.png" alt="img"></p>
+</section><section><section lineno="40" class="slide " data-line="40" data-h="0" data-v="0">
+<h2 class="mume-header" id="2-feign-%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F">2 feign &#x7684;&#x524D;&#x4E16;&#x4ECA;&#x751F;</h2>
+
+</section><section vertical="true" true="true" lineno="44" class="slide " data-line="44" data-h="0" data-v="1">
+<p>&#x8FD9;&#x4E2A;&#x7AE0;&#x8282;&#x5F88;&#x6709;&#x5FC5;&#x8981;&#xFF0C;&#x5426;&#x5219;&#x4F60;&#x770B;&#x5230;&#x5E95;&#x4E0B;&#x51E0;&#x4E2A;&#x7C7B;&#x4F3C;&#x7684;&#x4E1C;&#x897F;&#x7EDD;&#x5BF9;&#x8981;&#x8499;&#x5708;&#xFF1A;</p>
+<ul>
+<li>Netflix Feign</li>
+<li>Open Feign</li>
+<li>Spring Cloud Feign</li>
+<li>Spring Cloud OpenFeign</li>
+</ul>
+</section><section vertical="true" true="true" lineno="53" class="slide " data-line="53" data-h="0" data-v="2">
+<h3 class="mume-header" id="%E8%B5%B7%E6%BA%90netflix-feign">&#x8D77;&#x6E90;&#xFF1A;Netflix Feign</h3>
+
+</section><section vertical="true" true="true" lineno="57" class="slide " data-line="57" data-h="0" data-v="3">
+<ul>
+<li>Feign &#x8D77;&#x521D;&#x662F; Netflix &#x53D1;&#x5E03;&#x7684;&#xFF0C;&#x4F5C;&#x4E3A; Netflix OSS &#x9879;&#x76EE;&#x4E00;&#x90E8;&#x5206;</li>
+</ul>
+<pre data-role="codeBlock" data-info="text" class="language-text">- &#x6700;&#x65E9;&#x7684;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5728; 2012-03-18
+- &#x7B2C;&#x4E00;&#x4E2A; pr &#x5728; 2013-06-27&#xFF1A;[#1](https://github.com/OpenFeign/feign/pull/1)&#xFF08;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x7684;&#x4ED3;&#x5E93;&#x5DF2;&#x7ECF;&#x662F;&#x5F00;&#x6E90;&#x4E4B;&#x540E;&#x7684;&#x4E86;&#xFF09;
+- 2016 7&#x6708;&#x53D1;&#x5E03;&#x5176;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7248;&#x672C; 8.18.0
+</pre></section><section vertical="true" true="true" lineno="67" class="slide " data-line="67" data-h="0" data-v="4">
+<h3 class="mume-header" id="%E5%BC%80%E6%BA%90open-feign">&#x5F00;&#x6E90;&#xFF1A;Open Feign</h3>
+
+</section><section vertical="true" true="true" lineno="71" class="slide " data-line="71" data-h="0" data-v="5">
+<ul>
+<li>&#x540E;&#x6765; Netflix &#x5185;&#x90E8;&#x4E0D;&#x518D;&#x4F7F;&#x7528; Feign&#xFF0C;&#x505C;&#x6B62;&#x66F4;&#x65B0;&#x5E76;&#x79FB;&#x4EA4;&#x7ED9;&#x5F00;&#x6E90;&#x793E;&#x533A;&#xFF0C;&#x547D;&#x540D;&#x4E3A; OpenFeign</li>
+<li>OpenFeign &#x53D7;&#x5230;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x7684;&#x5DE8;&#x5927;&#x652F;&#x6301;&#x5E76;&#x589E;&#x52A0;&#x4E86;&#x5F88;&#x591A;&#x65B0;&#x7684;&#x7279;&#x6027;&#x548C;&#x66F4;&#x65B0;</li>
+</ul>
+<pre data-role="codeBlock" data-info="text" class="language-text">- 2016 7&#x6708;&#x53D1;&#x5E03;&#x9996;&#x4E2A;&#x7248;&#x672C; 9.0.0
+- &#x8BC1;&#x4E66;&#x79FB;&#x9664; Netflix &#x76F8;&#x5173;&#x7684;&#x5185;&#x5BB9; 2018-08-08&#xFF1A;[#755](https://github.com/OpenFeign/feign/pull/755)
+</pre><h3 class="mume-header" id="%E5%90%8E%E7%BB%ADspring-cloud-openfeign">&#x540E;&#x7EED;&#xFF1A;spring-cloud-openfeign</h3>
+
+</section><section vertical="true" true="true" lineno="83" class="slide " data-line="83" data-h="0" data-v="6">
+<ul>
+<li>Spring Cloud OpenFeign &#x5C06; feign &#x6574;&#x5408;&#x8FDB;&#x4E86; Spring Cloud &#x751F;&#x6001;&#xFF0C;&#x96C6;&#x6210;&#x4E86;&#x6CE8;&#x518C;&#x4E2D;&#x5FC3;&#x3001;Ribbon&#x3001;Hystrix &#x7B49;&#x7EC4;&#x4EF6;</li>
+<li>&#x589E;&#x52A0;&#x4E86;&#x5BF9; Spring MVC &#x76F8;&#x5173;&#x6CE8;&#x89E3;&#x7684;&#x652F;&#x6301;</li>
+<li>&#x5F00;&#x6E90;&#x793E;&#x533A;&#x5341;&#x5206;&#x6D3B;&#x8DC3;&#xFF0C;&#x53D1;&#x5C55;&#x826F;&#x597D;</li>
+<li>spring-cloud-feign &#x53EA;&#x662F;&#x5176;&#x524D;&#x8EAB;&#xFF0C;&#x4E0D;&#x7528;&#x7BA1;&#x5B83;</li>
+</ul>
+<pre data-role="codeBlock" data-info="text" class="language-text">- &#x6700;&#x65E9;&#x7684;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5728; 2014-07-14 [commit](https://github.com/spring-cloud/spring-cloud-openfeign/commit/9b506638f717ae0251fe51e068276b0640956492)
+- &#x7B2C;&#x4E00;&#x4E2A; pr &#x5728; 2018-03-10 [#6](https://github.com/spring-cloud/spring-cloud-openfeign/pull/6)
+</pre></section><section vertical="true" true="true" lineno="95" class="slide " data-line="95" data-h="0" data-v="7">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>groupId</th>
+<th>artifactId</th>
+<th>first release</th>
+<th>last relsese</th>
+<th>repository</th>
+<th>&#x9002;&#x7528;&#x73AF;&#x5883;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Netflix Feign</td>
+<td>com.netflix.feign</td>
+<td>feign-core</td>
+<td>2013.6 <code>1.0.0</code></td>
+<td>2016.7 <code>8.18.0</code></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Open Feign</td>
+<td>io.github.openfeign</td>
+<td>feign-core</td>
+<td>2016.7 <code>9.0.0</code></td>
+<td>&#x81F3;&#x4ECA;</td>
+<td>Netflix Feign &#x7684;&#x5EF6;&#x7EED;<br><a href="https://github.com/OpenFeign">https://github.com/OpenFeign</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Spring Cloud Feign</td>
+<td>org.springframework.cloud</td>
+<td>spring-cloud-starter-feign</td>
+<td>2015.3 <code>1.0.0</code></td>
+<td>2019.5.23 <code>1.4.7.RELEASE</code></td>
+<td>-</td>
+<td>Spring Cloud 1.x</td>
+</tr>
+<tr>
+<td>Spring Cloud OpenFeign</td>
+<td>org.springframework.cloud</td>
+<td>spring-cloud-starter-openfeign</td>
+<td>2017.11 <code>1.4.0.RELEASE</code></td>
+<td>&#x81F3;&#x4ECA;</td>
+<td>Spring Cloud Feign &#x7684;&#x5EF6;&#x7EED;<br><a href="https://github.com/spring-cloud/spring-cloud-openfeign">https://github.com/spring-cloud/spring-cloud-openfeign</a></td>
+<td>Spring Cloud 2.x</td>
+</tr>
+</tbody>
+</table>
+</section></section><section><section lineno="104" class="slide " data-line="104" data-h="1" data-v="0">
+<h2 class="mume-header" id="3-spring-cloud-openfeign-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">3 Spring Cloud OpenFeign &#x5FEB;&#x901F;&#x4E0A;&#x624B;</h2>
+
+</section><section vertical="true" true="true" lineno="108" class="slide " data-line="108" data-h="1" data-v="1">
+<h3 class="mume-header" id="31-client-%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B%E5%84%BF">3.1 client &#x8981;&#x505A;&#x7684;&#x4E8B;&#x513F;</h3>
+
+<h4 class="mume-header" id="311-%E4%BE%9D%E8%B5%96">3.1.1 &#x4F9D;&#x8D56;</h4>
+
+<ul>
+<li>&#x5F15;&#x5165;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#xFF08;&#x4E00;&#x952E;&#x5957;&#x5A03;&#xFF09;&#xFF1A;<code>compile(&apos;org.springframework.cloud:spring-cloud-starter-openfeign:2.1.1.RELEASE&apos;)</code></li>
+</ul>
+<h4 class="mume-header" id="312-%E5%90%AF%E7%94%A8-feign-client">3.1.2 &#x542F;&#x7528; feign client</h4>
+
+<ul>
+<li>&#x4E3B;&#x7A0B;&#x5E8F; Application.java &#x6DFB;&#x52A0;&#x6CE8;&#x89E3;&#x58F0;&#x660E; <code>@EnableFeignClients</code></li>
+</ul>
+<h4 class="mume-header" id="313-%E5%AE%9A%E4%B9%89-feign-client-interface%E7%94%A8%E4%BA%8E-api-%E8%B0%83%E7%94%A8">3.1.3 &#x5B9A;&#x4E49; feign client interface&#xFF0C;&#x7528;&#x4E8E; API &#x8C03;&#x7528;</h4>
+
+<ul>
+<li>&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x524D; client &#x9700;&#x8981;&#x4F9D;&#x8D56; international-flight-service &#x670D;&#x52A1;&#x7684;&#x67D0;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5219;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x5B9A;&#x4E49;</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;international-flight-service&quot;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token class-name">SearchRouter</span><span class="token punctuation">.</span>SEARCH_ROOT<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IntFlightSearchFlightsClient</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token class-name">SearchRouter</span><span class="token punctuation">.</span>SHOPPING<span class="token punctuation">)</span>
+  <span class="token class-name">ResponseContainer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">IntFlightShoppingResponseDto</span><span class="token punctuation">&gt;</span></span> <span class="token function">shopping</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">IntFlightShoppingRequestDto</span> request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</pre></section><section vertical="true" true="true" lineno="135" class="slide " data-line="135" data-h="1" data-v="2">
+<h3 class="mume-header" id="32-server-%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B%E5%84%BF">3.2 server &#x8981;&#x505A;&#x7684;&#x4E8B;&#x513F;</h3>
+
+<p>&#x65E0;&#xFF01;</p>
+</section><section vertical="true" true="true" lineno="141" class="slide " data-line="141" data-h="1" data-v="3">
+<h3 class="mume-header" id="33-%E4%BC%98%E5%8C%96">3.3 &#x4F18;&#x5316;</h3>
+
+</section><section vertical="true" true="true" lineno="145" class="slide " data-line="145" data-h="1" data-v="4">
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684; feign client &#x5DF2;&#x7ECF;&#x642D;&#x8D77;&#x6765;&#x4E86;&#xFF0C;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x4F18;&#x96C5;&#x7684;&#x8FDB;&#x884C;&#x670D;&#x52A1;&#x95F4;&#x901A;&#x4FE1;&#x4E86;&#x3002;</p>
+<p>&#x4F46;&#x5B58;&#x5728; bad smell&#xFF08;&#x548C; feign &#x672C;&#x8EAB;&#x65E0;&#x5173;&#xFF09;&#xFF1A;&#x5982;&#x679C;&#x591A;&#x4E2A; client &#x4F9D;&#x8D56;&#x540C;&#x4E00;&#x4E2A; server&#xFF0C;&#x6BCF;&#x4E2A; client &#x90FD;&#x8981;&#x91CD;&#x590D;&#x5B9A;&#x4E49; feign client interface&#xFF0C;&#x9EBB;&#x70E6;&#xFF0C;&#x4E14;&#x4E25;&#x91CD;&#x8FDD;&#x53CD; DRY &#x539F;&#x5219;&#xFF0C;&#x4F18;&#x5316;&#x601D;&#x8DEF;&#xFF1A;</p>
+<ul>
+<li>server &#x62BD;&#x51FA;&#x5B50;&#x9879;&#x76EE;&#xFF0C;&#x7528;&#x4E8E;&#x5B9A;&#x4E49; feign api&#xFF0C;&#x4F8B;&#x5982; international-flight-service-api &#x5B50;&#x9879;&#x76EE;
+<ul>
+<li>&#x5B50;&#x9879;&#x76EE;&#x58F0;&#x660E;&#x5BF9; feign &#x7684;&#x4F9D;&#x8D56;</li>
+<li>&#x5B50;&#x9879;&#x76EE;&#x5B9A;&#x4E49; feign client interface&#xFF0C;&#x548C;&#x7236;&#x9879;&#x76EE; controller &#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#xFF0C;&#x8FDB;&#x884C;&#x7EA6;&#x675F;&#xFF1A;
+<ul>
+<li>&#x5F15;&#x7528;&#x76F8;&#x540C;&#x7684; api url &#x5E38;&#x91CF;</li>
+<li>&#x5F15;&#x7528;&#x76F8;&#x540C;&#x7684; dto</li>
+<li>&#x5FC5;&#x8981;&#x7684;&#x8BDD;&#xFF0C;&#x8BA9; controller extends feign client interface&#xFF0C;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x4E0A;&#x7684;&#x7EA6;&#x675F;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>client &#x5F15;&#x5165; server &#x5B50;&#x9879;&#x76EE;&#x7684; jar &#x5305;&#x5373;&#x53EF;</li>
+</ul>
+</section><section vertical="true" true="true" lineno="159" class="slide " data-line="159" data-h="1" data-v="5">
+<h3 class="mume-header" id="34-%E5%8E%9F%E7%90%86%E7%AE%80%E8%BF%B0">3.4 &#x539F;&#x7406;&#x7B80;&#x8FF0;</h3>
+
+<ul>
+<li>client &#x670D;&#x52A1;&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x68C0;&#x6D4B;&#x5230; @EnableFeignClients &#x6CE8;&#x89E3;</li>
+<li>&#x5305;&#x626B;&#x63CF;&#x8FC7;&#x7A0B;&#x4F1A;&#x626B;&#x63CF;&#x6240;&#x6709; @FeignClient &#x6CE8;&#x89E3;&#x7684;&#x7C7B;&#xFF0C;&#x5BF9;&#x5176;&#x521B;&#x5EFA; RPC &#x8BF7;&#x6C42;&#x7684;&#x672C;&#x5730; JDK proxy &#x4EE3;&#x7406;&#x5B9E;&#x4F8B;</li>
+<li>Spring IOC &#x5BB9;&#x5668;&#x7BA1;&#x7406;&#x8FD9;&#x4E9B;&#x4EE3;&#x7406;&#x5B9E;&#x4F8B;</li>
+<li>&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;proxy &#x5B8C;&#x6210;&#x771F;&#x6B63;&#x7684;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;</li>
+</ul>
+<blockquote>
+<p>&#x5BF9;&#x4EE3;&#x7406;&#x5B9E;&#x73B0;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x770B; FeignInvocationHandler &#x548C; HystrixInvocationHandler</p>
+</blockquote>
+</section></section><section><section lineno="172" class="slide " data-line="172" data-h="2" data-v="0">
+<h2 class="mume-header" id="4-%E5%B8%A6%E4%BD%A0%E9%81%BF%E5%9D%91">4 &#x5E26;&#x4F60;&#x907F;&#x5751;</h2>
+
+</section><section vertical="true" true="true" lineno="176" class="slide " data-line="176" data-h="2" data-v="1">
+<h3 class="mume-header" id="41-%E5%85%B3%E4%BA%8E%E8%B6%85%E6%97%B6">4.1 &#x5173;&#x4E8E;&#x8D85;&#x65F6;</h3>
+
+<p>&#x5982;&#x679C;&#x4ECE; 0 &#x5F00;&#x59CB;&#x4F7F;&#x7528; feign client&#xFF0C;&#x4E00;&#x5B9A;&#x4F1A;&#x9047;&#x5230;&#x8BF7;&#x6C42;&#x8D85;&#x65F6;&#xFF0C;&#x4F46;&#x53EF;&#x80FD;&#x662F;&#x5076;&#x53D1;&#x7684;&#xFF0C;</p>
+<p>&#x914D;&#x7F6E;&#x4FEE;&#x6539;&#x793A;&#x4F8B;&#xFF1A;&#xFF08;&#x5C24;&#x5176; ReadTimeout&#xFF0C;&#x6309;&#x7167;&#x9879;&#x76EE;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x914D;&#x7F6E;&#xFF09;</p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml"><span class="token comment"># feign client ribbon &#x914D;&#x7F6E;</span>
+<span class="token key atrule">ribbon</span><span class="token punctuation">:</span>
+  <span class="token comment"># &#x9ED8;&#x8BA4;1s -&gt; 30s</span>
+  <span class="token key atrule">ReadTimeout</span><span class="token punctuation">:</span> <span class="token number">30000</span>
+  <span class="token comment"># &#x9ED8;&#x8BA4;1s -&gt; 5s</span>
+  <span class="token key atrule">ConnectTimeout</span><span class="token punctuation">:</span> <span class="token number">5000</span>
+</pre></section><section vertical="true" true="true" lineno="193" class="slide " data-line="193" data-h="2" data-v="2">
+<h3 class="mume-header" id="42-%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E5%A4%B1%E8%B4%A5">4.2 &#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;</h3>
+
+<ul>
+<li>&#x73B0;&#x8C61;&#xFF1A;&#x8FD0;&#x884C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#xFF0C;&#x62A5;&#x9519; <code>Load balancer does not have available server for client: international-flight-service</code></li>
+<li>&#x539F;&#x56E0;&#xFF1A;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x9700;&#x8981; mock &#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5173;&#x95ED;&#x8D1F;&#x8F7D;&#x5747;&#x8861;</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x56FA;&#x5B9A;&#x5730;&#x5740;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;</li>
+</ul>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml"><span class="token key atrule">international-flight-service</span><span class="token punctuation">:</span>
+  <span class="token comment"># &#x56FA;&#x5B9A;&#x5730;&#x5740;&#xFF0C;&#x4F7F; feign &#x7684; LB &#x5931;&#x6548;</span>
+  <span class="token key atrule">ribbon</span><span class="token punctuation">:</span>
+    <span class="token key atrule">listOfServers</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span>$<span class="token punctuation">{</span>wiremock.port<span class="token punctuation">}</span>
+</pre></section><section vertical="true" true="true" lineno="208" class="slide " data-line="208" data-h="2" data-v="3">
+<h3 class="mume-header" id="43-feignclient-bean-%E9%87%8D%E5%90%8D%E9%97%AE%E9%A2%98">4.3 FeignClient bean &#x91CD;&#x540D;&#x95EE;&#x9898;</h3>
+
+<ul>
+<li>&#x73B0;&#x8C61;&#xFF1A;&#x542F;&#x52A8;&#x670D;&#x52A1;&#xFF0C;&#x62A5;&#x9519; <code>The bean &apos;international-flight-service.FeignClientSpecification&apos;, defined in null, could not be registered. A bean with that name has already been defined in null and overriding is disabled</code></li>
+<li>&#x539F;&#x56E0;&#xFF1A;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x4E0D;&#x5141;&#x8BB8;&#x591A;&#x4E2A; @FeignClient &#x7684; value &#x7684;&#x76F8;&#x540C;&#xFF0C;&#x56E0;&#x4E3A; value &#x4F1A;&#x4F5C;&#x4E3A; bean name&#xFF0C;&#x8FD9;&#x662F;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#xFF1A;&#x624B;&#x52A8;&#x58F0;&#x660E; contextId &#x4F5C;&#x4E3A; bean name</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span>
+  value <span class="token operator">=</span> <span class="token string">&quot;international-flight-service&quot;</span><span class="token punctuation">,</span>
+  contextId <span class="token operator">=</span> <span class="token string">&quot;intFlightSearchFlightsClient&quot;</span>
+<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&quot;/international-flight/v1/search&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IntFlightSearchFlightsClient</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</pre></section><section vertical="true" true="true" lineno="226" class="slide " data-line="226" data-h="2" data-v="4">
+<h3 class="mume-header" id="44-api-%E5%A3%B0%E6%98%8E%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC%E5%92%8C%E5%AE%9E%E9%99%85%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B8%8D%E4%B8%80%E8%87%B4">4.4 API &#x58F0;&#x660E;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x548C;&#x5B9E;&#x9645;&#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x4E00;&#x81F4;</h3>
+
+<ul>
+<li>&#x58F0;&#x660E;&#x8FD4;&#x56DE;&#x503C;&#xFF1A;feign client interface &#x672C;&#x5E94;&#x8BE5;&#x548C; controller &#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4E00;&#x81F4;&#xFF08;&#x751A;&#x81F3;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#x6211;&#x8FD8;&#x6253;&#x7B97;&#x8BA9; controller implement feignClientInterface&#xFF09;&#x3002;&#x6BD4;&#x5982;&#x671F;&#x671B;&#x67D0; API &#x8FD4;&#x56DE; String &#x7C7B;&#x578B;</li>
+<li>&#x5B9E;&#x9645;&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x7531;&#x4E8E; filter &#x5728;&#x8FD4;&#x56DE;&#x503C;&#x4E2D;&#x505A;&#x4E86;&#x4E9B;&#x624B;&#x811A;&#xFF0C;&#x5C06;&#x7ED3;&#x679C;&#x5305;&#x88C5;&#x4E86;&#x4E00;&#x5C42;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x52A0;&#x4E0A;&#x4E86;&#x9519;&#x8BEF;&#x7801;&#x548C;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x7B49;&#x5B57;&#x6BB5;&#xFF0C;&#x5B9E;&#x9645;&#x8FD4;&#x56DE;&#x503C;&#x5C31;&#x6210;&#x4E86; ResponseContainer&lt;String&gt;</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;
+<ul>
+<li>&#x65B9;&#x6848;&#x4E00;&#xFF1A;&#x6709;&#x4E9B;&#x540C;&#x5B66;&#x672C;&#x5C31;&#x53CD;&#x5BF9;&#x5728; filter &#x4E2D;&#x505A;&#x8FD9;&#x79CD;&#x5305;&#x88C5;&#xFF0C;&#x5982;&#x679C;&#x79FB;&#x9664;&#x8FD9;&#x5C42;&#x903B;&#x8F91;&#xFF0C;&#x80FD;&#x89E3;&#x51B3;&#x6839;&#x672C;&#x95EE;&#x9898;&#xFF0C;&#x4E0D;&#x8FC7;&#x6539;&#x52A8;&#x5F88;&#x5927;</li>
+<li>&#x65B9;&#x6848;&#x4E8C;&#xFF1A;&#x58F0;&#x660E; feign client interface &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BA9;&#x5B83;&#x548C;&#x5BF9;&#x5E94;&#x7684; controller &#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x540C;&#xFF0C;&#x5E76;&#x63A5;&#x53D7;&#x8FD9;&#x79CD;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x73B0;&#x72B6;
+<ul>
+<li>&#x4F7F;&#x7528; ResponseContainer &#x5305;&#x88C5;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</li>
+<li>&#x4F7F;&#x7528; EmptyResponseContainer &#x66FF;&#x4EE3; void &#x7C7B;&#x578B;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section><section vertical="true" true="true" lineno="238" class="slide " data-line="238" data-h="2" data-v="5">
+<h3 class="mume-header" id="45-requestparam-%E6%B3%A8%E8%A7%A3%E5%92%8C-springmvc-%E4%B8%AD%E7%9A%84%E8%A1%8C%E4%B8%BA%E6%9C%89%E7%A8%8D%E8%AE%B8%E5%B7%AE%E5%BC%82">4.5 @RequestParam &#x6CE8;&#x89E3;&#x548C; springmvc &#x4E2D;&#x7684;&#x884C;&#x4E3A;&#x6709;&#x7A0D;&#x8BB8;&#x5DEE;&#x5F02;</h3>
+
+<ul>
+<li>&#x73B0;&#x8C61;&#xFF1A;&#x542F;&#x52A8;&#x670D;&#x52A1;&#xFF0C;&#x62A5;&#x9519; <code>RequestParam.value() was empty on parameter 0</code></li>
+<li>&#x539F;&#x56E0;&#xFF1A;feign &#x5904;&#x7406; @RequestParam &#x6CE8;&#x89E3;&#x7684;&#x884C;&#x4E3A;&#x65F6;&#xFF0C;&#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x548C; springmvc &#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF0C;springmvc @RequestParam value &#x5141;&#x8BB8;&#x4E0D;&#x586B;&#xFF0C;&#x9ED8;&#x8BA4;&#x548C;&#x5B57;&#x6BB5;&#x540D;&#x4E00;&#x6837;</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#xFF1A;&#x586B;&#x4E0A; value &#x5C31;&#x597D;</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token class-name">ResponseContainer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">IntFlightCommissionConfigDetailDto</span><span class="token punctuation">&gt;</span></span> <span class="token function">getCommissionConfigDetail</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span> <span class="token class-name">String</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre></section></section>
+      </div>
+    </div>
+    
+      </div>
+      
+      
+    
+    
+      <script>
+        Reveal.initialize({"margin":0.1,"dependencies":[]})
+      </script>
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

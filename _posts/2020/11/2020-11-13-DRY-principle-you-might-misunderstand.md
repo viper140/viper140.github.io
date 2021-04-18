@@ -11,6 +11,8 @@ author: '王峰'
 
 <!--more-->
 
+<!-- slide -->
+
 ## 1 简介
 
 <!-- slide vertical = true -->
