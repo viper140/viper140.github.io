@@ -29,7 +29,13 @@ jekyll、hexo、hugo 怎么选？
   - <https://www.simongong.net/xuan-ze-kun-nan-zheng>
   - <https://stackshare.io/stackups/hexo-vs-hugo-vs-jekyll>
 
-## 2 别人的博客
+## 2 jekyll
+
+### 2.1 头信息
+
+- categories：分组，尽量不要写，资源的 url 会带上这个分组的值，很麻烦。tags 实际已经够用
+
+## 别人的博客
 
 - 好看的博客
   - 我比较喜欢这个，清晰简单：<http://blog.yeshuanova.com>
