@@ -5,60 +5,32 @@ tags: ['编程思想', '代码规范']
 author: '王峰'
 ---
 
-或许你听说过 DRY 原则，但我打赌，你理解的肯定有偏差；或许你从未听过，那太好了，本文会让你受益匪浅，对你的编码一定有指导作用，甚至对你的工作生活都有些许启发。
+我相信你或多或少听说过 DRY 原则，以至于看到标题后嗤之以鼻。但我猜你理解的肯定有所偏差，本文会带你重新回顾一下 DRY 原则，修正多数人的理解误区。
 
 <!--more-->
 
 <!-- slide -->
 
-## 1 简介
+## 1 引言
 
-<!-- slide vertical = true -->
+**DRY，Don't Repeat Yourself**：多个地方表达相同的含义。
 
-DRY，Don't Repeat Yourself
+### 1.1 如何理解 DRY 原则
 
-<!-- slide vertical = true -->
+DRY 针对的是`知识和意图`的复制，强调多个地方表达的东西其实是相同的，只是表达方式不同。
 
-### 1.1 什么是 Repeat Yourself
+**理解误区**：有些人将 DRY 固化为编码规范，这是狭隘的。至少，别把它理解为“不要复制粘贴代码”，它和你想的不一样。
 
-Repeat Yourself：多个地方表达相同的含义。
+### 1.2 Repeat Yourself  带来了哪些问题
 
-<!-- slide vertical = true -->
-
-Repeat Yourself 的坏处：
-
-- 变更其中一个，就必须记得变更其他，维护负担很重。
-- 就个人来讲，迟早会改漏。如果换个人维护，就更别指望了。
-
-<!-- slide vertical = true -->
-
-### 1.2 如何理解 DRY 原则
-
-- DRY 针对的是`知识和意图`的复制，强调多个地方表达的东西其实是相同的，只是表达方式不同。
-
-<!-- slide vertical = true -->
-
-> Q：知识和意图 这两个词比较抽象，如果具体到编码，指代的什么呢？
-
-<!-- slide vertical = true -->
-
-理解误区：
-
-- 有些人将 DRY 固化为编码规范，这是狭隘的。
-- 至少，别把它理解为“不要复制粘贴代码”，它和你想的真的不一样。
-- 实际上，DRY 原则对工作、生活中的问题也有着指导作用，比如我写本文由于要作用于博客、ppt 等场景，创建了多个副本，设想一下，如果我要修改某个章节，是不是每处都要改？到时候我或许会抓狂。
-
-<!-- slide -->
+- 以文档为例，假如同一个文档有多个副本，变更其中一个，就必须记得变更其他，维护负担很重。
+- 以代码为例，同一段代码抄来抄去，如果遇到需求变更，迟早会改漏。如果换个人维护，就更别指望了。
 
 ## 2 DRY 原则描述了哪些重复现象
 
-<!-- slide vertical = true -->
-
 ### 2.1 代码重复
 
-“复制粘贴”代码只是代码重复的一种特例，很多情况下，都不是你想的那样。
-
-<!-- slide vertical = true -->
+“代码重复”就是很多人对 DRY 全部的理解，但还不准确，“复制粘贴”代码只是代码重复的一种特例，很多情况下，重复是不明显的：
 
 ```python
 # 定义账户类
@@ -85,26 +57,12 @@ myAccount = MyAccount(100, -300)
 printAccount(myAccount)
 ```
 
-<!-- slide vertical = true -->
-
 以上代码没有复制粘贴，但仍有两处重复。
 
-<!-- slide vertical = true -->
+- 负数处理的逻辑重复
+- 打印逻辑的重复
 
-- 第一处重复：负数处理。修改：
-
-  ```python
-  def printAccount(account):
-    print('fee: %10.2f' % formatMoney(account.fee))
-    print('balance: %10.2f' % formatMoney(account.balance))
-
-  def formatMoney(amount):
-    return abs(amount)
-  ```
-
-<!-- slide vertical = true -->
-
-- 第二处重复：print 的格式。修改：
+修改后：
 
   ```python
   def printAccount(account):
@@ -118,11 +76,7 @@ printAccount(myAccount)
     return abs(amount)
   ```
 
-<!-- slide vertical = true -->
-
-> Q：所有代码的重复都是知识的重复么？
-
-<!-- slide vertical = true -->
+> Q：思考一下，所有代码的重复都是知识的重复么？
 
 ### 2.2 文档重复
 
